@@ -114,7 +114,7 @@ export default class OwlCarouselComponent {
       const itemsCount = element.querySelectorAll('.item').length;
 
       $element.owlCarousel({
-        items: 6, // Desktop default
+        items: 6, 
         margin: 24,
         loop: itemsCount > 4,
         autoplay: true,
@@ -124,26 +124,22 @@ export default class OwlCarouselComponent {
         nav: false,
         stagePadding: 0,
         responsive: {
-          // Mobile
           0: {
-            items: 2.5,
+            items: 3,
             margin: 8,
             stagePadding: 0,
           },
-          // Small mobile
           480: {
-            items: 3,
+            items: 4,
             margin: 12,
             stagePadding: 0,
           },
-          // Tablet: 4 items
           768: {
-            items: 4,
+            items: 5,
             margin: 20,
           },
-          // Desktop: 5 items
           1024: {
-            items: 5,
+            items: 6,
             margin: 24,
           },
         },
