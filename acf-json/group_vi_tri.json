@@ -1,0 +1,166 @@
+{
+    "key": "group_vi_tri",
+    "title": "Vị trí",
+    "fields": [
+        {
+            "key": "field_vi_tri_tieu_de",
+            "label": "Tiêu đề section",
+            "name": "vi_tri_tieu_de",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Tiêu đề chính của phần vị trí",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Vị trí dự án",
+            "maxlength": "",
+            "placeholder": "Ví dụ: Vị trí dự án",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_vi_tri_phu_de",
+            "label": "Phụ đề",
+            "name": "vi_tri_phu_de",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Phụ đề của phần vị trí",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Tâm điểm thịnh vượng",
+            "maxlength": "",
+            "placeholder": "Ví dụ: Tâm điểm thịnh vượng",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_vi_tri_mo_ta",
+            "label": "Mô tả vị trí",
+            "name": "vi_tri_mo_ta",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Mô tả chi tiết về vị trí và lợi thế địa lý của dự án",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 6,
+            "placeholder": "Mô tả chi tiết về vị trí dự án...",
+            "new_lines": "br"
+        },
+        {
+            "key": "field_vi_tri_hinh_anh",
+            "label": "Hình ảnh vị trí",
+            "name": "vi_tri_hinh_anh",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Hình ảnh minh họa vị trí dự án (SVG khuyến nghị)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "jpg,jpeg,png,svg",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_vi_tri_link_chi_tiet",
+            "label": "Liên kết chi tiết",
+            "name": "vi_tri_link_chi_tiet",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Đường dẫn đến trang chi tiết vị trí",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "/vi-tri",
+            "placeholder": "https://example.com/vi-tri"
+        },
+        {
+            "key": "field_vi_tri_text_nut",
+            "label": "Text nút chi tiết",
+            "name": "vi_tri_text_nut",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Văn bản hiển thị trên nút xem chi tiết",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Xem chi tiết",
+            "maxlength": "",
+            "placeholder": "Ví dụ: Xem chi tiết",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_vi_tri_hien_thi_nut",
+            "label": "Hiển thị nút chi tiết",
+            "name": "vi_tri_hien_thi_nut",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Bật/tắt hiển thị nút xem chi tiết",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "Hiển thị nút \"Xem chi tiết\"",
+            "default_value": 1,
+            "ui_on_text": "Hiển thị",
+            "ui_off_text": "Ẩn",
+            "ui": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-location"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Cài đặt thông tin vị trí của dự án QP Green Park",
+    "show_in_rest": 0
+}

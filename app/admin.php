@@ -43,6 +43,17 @@ add_action('admin_menu', function () {
         32                                       // Position
     );
 
+    // Location admin page
+    add_menu_page(
+        __('Vị trí', 'qpgreenpark'),             // Page title
+        __('Vị trí', 'qpgreenpark'),             // Menu title
+        'manage_options',                        // Capability
+        'location',                              // Menu slug
+        __NAMESPACE__ . '\\render_location_page', // Callback function
+        'dashicons-location',                    // Icon
+        32                                       // Position
+    );
+
     // Advantages admin page
     add_menu_page(
         __('Lợi thế', 'qpgreenpark'),            // Page title
@@ -51,7 +62,7 @@ add_action('admin_menu', function () {
         'advantages',                            // Menu slug
         __NAMESPACE__ . '\\render_advantages_page', // Callback function
         'dashicons-star-filled',                 // Icon
-        32                                       // Position
+        33                                       // Position
     );
 
     // Floor Plan admin page
@@ -62,7 +73,7 @@ add_action('admin_menu', function () {
         'floorplan',                             // Menu slug
         __NAMESPACE__ . '\\render_floorplan_page', // Callback function
         'dashicons-grid-view',                   // Icon
-        33                                       // Position
+        34                                       // Position
     );
 });
 
@@ -198,6 +209,107 @@ function render_utilities_page() {
         .utilities-admin-content h2 { margin-top: 0; color: #23282d; }
         .utilities-admin-content ul { margin-left: 20px; }
         .utilities-admin-content li { margin-bottom: 8px; line-height: 1.5; }
+    </style>
+    <?php
+}
+
+/**
+ * Render the Location admin page
+ */
+function render_location_page() {
+    // Handle form submission
+    if (isset($_POST['submit']) && wp_verify_nonce($_POST['location_nonce'], 'location_save')) {
+        // Save ACF fields
+        if (function_exists('acf_save_post')) {
+            $_POST['acf']['_acfnonce'] = wp_create_nonce('acf_nonce');
+            acf_save_post('options');
+        }
+
+        echo '<div class="notice notice-success is-dismissible"><p>' . __('Đã lưu thành công!', 'qpgreenpark') . '</p></div>';
+    }
+
+    // Handle demo seed (force, no redirect)
+    if (isset($_POST['seed_demo']) && wp_verify_nonce($_POST['location_seed_nonce'], 'location_seed')) {
+        if (!function_exists('update_field')) {
+            echo '<div class="notice notice-error is-dismissible"><p>' . __('ACF chưa sẵn sàng để seed dữ liệu.', 'qpgreenpark') . '</p></div>';
+        } else {
+            // Seed demo data
+            update_field('field_vi_tri_tieu_de', 'Vị trí dự án', 'option');
+            update_field('field_vi_tri_phu_de', 'Tâm điểm thịnh vượng', 'option');
+            update_field('field_vi_tri_mo_ta', 'Tọa lạc tại xã Bình Mỹ, huyện Bắc Tân Uyên, QP Green Park thừa hưởng lợi thế từ sự phát triển mạnh mẽ của hạ tầng giao thông và quy hoạch đô thị trong khu vực. Dự án nằm liền kề các tuyến giao thông huyết mạch như DT742 và DT747, tạo điều kiện thuận lợi cho cư dân kết nối nhanh chóng đến TP.HCM, Đồng Nai, Bình Phước cũng như các khu công nghiệp trọng điểm. Đây là lợi thế nổi bật, góp phần nâng cao tiềm năng khai thác, gia tăng giá trị đầu tư và tạo nền tảng vững chắc cho an cư lâu dài.', 'option');
+            update_field('field_vi_tri_link_chi_tiet', '/vi-tri', 'option');
+            update_field('field_vi_tri_text_nut', 'Xem chi tiết', 'option');
+
+            echo '<div class="notice notice-success is-dismissible"><p>' . __('Đã seed dữ liệu demo thành công!', 'qpgreenpark') . '</p></div>';
+        }
+    }
+    ?>
+    <div class="wrap">
+        <h1><?php echo esc_html(get_admin_page_title()); ?></h1>
+
+        <div class="location-admin-content">
+            <h2>Quản lý thông tin vị trí dự án</h2>
+            <p>Cấu hình thông tin về vị trí và lợi thế địa lý của dự án QP Green Park.</p>
+            <ul>
+                <li><strong>Tiêu đề & Phụ đề:</strong> Thiết lập tiêu đề chính và phụ đề cho section vị trí</li>
+                <li><strong>Mô tả:</strong> Nội dung mô tả chi tiết về vị trí và lợi thế</li>
+                <li><strong>Hình ảnh:</strong> Hình ảnh minh họa vị trí dự án</li>
+                <li><strong>Liên kết:</strong> Đường dẫn và text cho nút "Xem chi tiết"</li>
+            </ul>
+        </div>
+
+        <!-- Demo Seed Form -->
+        <form method="post" action="" style="margin-bottom: 20px;">
+            <?php wp_nonce_field('location_seed', 'location_seed_nonce'); ?>
+            <input type="submit" name="seed_demo" class="button button-secondary"
+                   value="<?php echo esc_attr(__('Seed dữ liệu demo', 'qpgreenpark')); ?>"
+                   onclick="return confirm('Bạn có chắc chắn muốn seed dữ liệu demo? Điều này sẽ ghi đè dữ liệu hiện tại.');" />
+            <small style="margin-left: 10px; color: #666;">
+                <?php _e('Tạo dữ liệu mẫu cho phần vị trí', 'qpgreenpark'); ?>
+            </small>
+        </form>
+
+        <hr style="margin: 20px 0;" />
+
+        <!-- Main Form -->
+        <form method="post" action="">
+            <?php wp_nonce_field('location_save', 'location_nonce'); ?>
+
+            <?php
+            // Display ACF fields for options page
+            if (function_exists('acf_form')) {
+                acf_form([
+                    'post_id' => 'options',
+                    'field_groups' => ['group_vi_tri'],
+                    'form' => false,
+                    'return' => '',
+                ]);
+            }
+            ?>
+
+            <?php submit_button(__('Lưu thay đổi', 'qpgreenpark')); ?>
+        </form>
+    </div>
+
+    <style>
+        .location-admin-content {
+            background: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #ccd0d4;
+            border-radius: 4px;
+        }
+        .location-admin-content h2 {
+            margin-top: 0;
+            color: #23282d;
+        }
+        .location-admin-content ul {
+            margin-left: 20px;
+        }
+        .location-admin-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
     </style>
     <?php
 }
@@ -519,7 +631,7 @@ function render_library_page() {
  * Enqueue ACF scripts on admin pages
  */
 add_action('admin_enqueue_scripts', function ($hook) {
-    if (!in_array($hook, ['toplevel_page_partners', 'toplevel_page_utilities', 'toplevel_page_advantages', 'toplevel_page_library', 'toplevel_page_floorplan'])) {
+    if (!in_array($hook, ['toplevel_page_partners', 'toplevel_page_utilities', 'toplevel_page_location', 'toplevel_page_advantages', 'toplevel_page_library', 'toplevel_page_floorplan'])) {
         return;
     }
 
@@ -550,7 +662,7 @@ add_filter('acf/settings/load_json', function ($paths) {
  */
 add_action('admin_notices', function () {
     // Only show on admin pages
-    if (!isset($_GET['page']) || !in_array($_GET['page'], ['partners', 'utilities', 'advantages', 'library', 'floorplan'])) {
+    if (!isset($_GET['page']) || !in_array($_GET['page'], ['partners', 'utilities', 'location', 'advantages', 'library', 'floorplan'])) {
         return;
     }
 
