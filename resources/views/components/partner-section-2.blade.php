@@ -29,7 +29,7 @@
 
             <h2 class="text-2xl lg:text-4xl font-base uppercase mb-4" data-aos="fade-down" data-aos-duration="600"
                 data-aos-delay="200">
-                {{ $doi_tac_section['tieu_de'] }}
+                Chủ đầu tư
             </h2>
 
             <div class="flex items-center">
