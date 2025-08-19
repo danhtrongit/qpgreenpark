@@ -122,11 +122,19 @@ export default class OwlCarouselComponent {
         autoplayHoverPause: true,
         dots: false,
         nav: false,
+        stagePadding: 0,
         responsive: {
           // Mobile
-          320: {
+          0: {
+            items: 2.5,
+            margin: 8,
+            stagePadding: 0,
+          },
+          // Small mobile
+          480: {
             items: 3,
             margin: 12,
+            stagePadding: 0,
           },
           // Tablet: 4 items
           768: {

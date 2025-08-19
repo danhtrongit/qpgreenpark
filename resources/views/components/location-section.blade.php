@@ -17,7 +17,7 @@
     $show_button = $show_button !== false;
 @endphp
 
-<div class="h-auto lg:min-h-screen relative flex flex-col items-center justify-center overflow-hidden">
+<div class="h-auto lg:min-h-screen relative flex flex-col items-center justify-center overflow-hidden section-bg">
         <div class="container p-4 py-12 lg:pt-16">
             <div class="grid grid-cols-1 lg:grid-cols-5 gap-y-8 items-center">
                 <div class="col-span-2" data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">

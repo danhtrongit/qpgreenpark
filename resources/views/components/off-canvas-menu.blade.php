@@ -45,33 +45,6 @@
                         >
                     </div>
 
-                    {{-- Contact Info --}}
-                    <div class="mb-8 space-y-4 text-left max-w-sm mx-auto">
-                        <div class="flex items-center gap-3 contact-item">
-                            <div class="w-10 h-10 bg-secondary-mid/20 rounded-full flex items-center justify-center flex-shrink-0">
-                                <i class="fa-light fa-phone text-secondary-dark"></i>
-                            </div>
-                            <div>
-                                <p class="text-sm text-gray-400">Hotline</p>
-                                <a href="tel:{{ \App\get_contact_phone_link() }}" class="text-white hover:text-secondary-dark transition-colors">
-                                    {{ \App\get_contact_phone() }}
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center gap-3 contact-item">
-                            <div class="w-10 h-10 bg-secondary-mid/20 rounded-full flex items-center justify-center flex-shrink-0">
-                                <i class="fa-light fa-envelope text-secondary-dark"></i>
-                            </div>
-                            <div>
-                                <p class="text-sm text-gray-400">Email</p>
-                                <a href="mailto:{{ \App\get_contact_email() }}" class="text-white hover:text-secondary-dark transition-colors">
-                                    {{ \App\get_contact_email() }}
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
                     {{-- Social Media --}}
                     @if(\App\get_social_links())
                         <div class="space-x-4 flex justify-center social-links">
@@ -118,7 +91,7 @@
                             ]) !!}
                         @else
                             {{-- Fallback menu with 2-column layout --}}
-                            <ul class="grid lg:grid-cols-2 gap-4">
+                            <ul class="grid text-center lg:text-left grid-cols-2 gap-4">
                                 <li>
                                     <a href="{{ home_url('/') }}" class="block py-4 px-6 text-white text-lg font-medium transition-all duration-300 border-b-2 border-transparent hover:text-secondary-dark hover:border-secondary-dark">
                                         Trang chủ

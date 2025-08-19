@@ -11,8 +11,10 @@ export default class AOSFullPageModern {
   constructor() {
     this.isFullPageActive = false;
     this.fullPageContainer = null;
-    
+    this.currentMode = null; // 'fullpage' or 'normal'
+
     this.init();
+    this.setupResizeListener();
   }
 
   /**
@@ -21,21 +23,28 @@ export default class AOSFullPageModern {
   init() {
     // Detect FullPage container
     this.detectFullPageContainer();
-    
+
     if (this.isFullPageActive) {
       this.setupFullPageMode();
+      this.currentMode = 'fullpage';
     } else {
       this.setupNormalMode();
+      this.currentMode = 'normal';
     }
   }
 
   /**
-   * Detect FullPage container
+   * Detect FullPage container and check if FullPage.js should be active
    */
   detectFullPageContainer() {
-    this.fullPageContainer = document.getElementById('fullpage') || 
+    this.fullPageContainer = document.getElementById('fullpage') ||
                             document.querySelector('[data-fullpage]');
-    this.isFullPageActive = !!this.fullPageContainer;
+
+    // Check if FullPage.js should be active based on screen size
+    // FullPage.js is only enabled on desktop (width >= 1024px)
+    const shouldFullPageBeActive = window.innerWidth >= 1024;
+
+    this.isFullPageActive = !!this.fullPageContainer && shouldFullPageBeActive;
   }
 
   /**
@@ -61,14 +70,28 @@ export default class AOSFullPageModern {
   setupNormalMode() {
     // Import and initialize regular AOS for normal scroll
     import('aos').then(AOS => {
+      // Store AOS globally for cleanup
+      window.AOS = AOS.default;
+
+      // Configure AOS with mobile-optimized settings
+      const isMobile = window.innerWidth < 768;
+
       AOS.default.init({
-        duration: 600,
+        duration: isMobile ? 400 : 600, // Faster animations on mobile
         easing: 'ease-out-cubic',
         once: false,
         mirror: true,
-        offset: 120,
+        offset: isMobile ? 80 : 120, // Lower offset on mobile
         delay: 0,
-        anchorPlacement: 'top-bottom'
+        anchorPlacement: 'top-bottom',
+        disable: false, // Ensure AOS is enabled on all devices
+        startEvent: 'DOMContentLoaded',
+        initClassName: 'aos-init',
+        animatedClassName: 'aos-animate',
+        useClassNames: false,
+        disableMutationObserver: false,
+        debounceDelay: 50,
+        throttleDelay: 99
       });
     });
   }
@@ -280,6 +303,85 @@ export default class AOSFullPageModern {
       animatedElements: animatedElements.length,
       fullPageAPIAvailable: typeof window.fullpage_api !== 'undefined'
     };
+  }
+
+  /**
+   * Setup resize listener to handle screen size changes
+   */
+  setupResizeListener() {
+    let resizeTimeout;
+
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        this.handleResize();
+      }, 250); // Debounce resize events
+    });
+  }
+
+  /**
+   * Handle resize events - switch between FullPage and normal mode
+   */
+  handleResize() {
+    const previousMode = this.currentMode;
+
+    // Re-detect FullPage status
+    this.detectFullPageContainer();
+
+    const newMode = this.isFullPageActive ? 'fullpage' : 'normal';
+
+    // Only reinitialize if mode changed
+    if (previousMode !== newMode) {
+      // Clean up previous mode
+      if (previousMode === 'normal') {
+        this.cleanupNormalMode();
+      }
+
+      // Initialize new mode
+      if (newMode === 'fullpage') {
+        this.setupFullPageMode();
+      } else {
+        this.setupNormalMode();
+      }
+
+      this.currentMode = newMode;
+    } else {
+      // Same mode, but force refresh for mobile orientation changes
+      this.forceRefresh();
+    }
+  }
+
+  /**
+   * Cleanup normal AOS mode
+   */
+  cleanupNormalMode() {
+    // If AOS was initialized, refresh it
+    if (window.AOS && typeof window.AOS.refresh === 'function') {
+      window.AOS.refresh();
+    }
+  }
+
+  /**
+   * Force refresh AOS - useful for mobile when switching orientations
+   */
+  forceRefresh() {
+    if (this.currentMode === 'normal' && window.AOS) {
+      // Reset all AOS elements
+      const aosElements = document.querySelectorAll('[data-aos]');
+      aosElements.forEach(element => {
+        element.classList.remove('aos-animate');
+      });
+
+      // Refresh AOS
+      setTimeout(() => {
+        if (window.AOS && typeof window.AOS.refresh === 'function') {
+          window.AOS.refresh();
+        }
+      }, 100);
+    } else if (this.currentMode === 'fullpage') {
+      // Refresh FullPage mode animations
+      this.refresh();
+    }
   }
 
   /**

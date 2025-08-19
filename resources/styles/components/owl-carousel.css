@@ -61,7 +61,7 @@
 
 /* Partner Owl Carousel Styles */
 .owl-partner {
-  @apply h-auto;
+  @apply h-auto w-full;
 }
 
 .owl-partner .item {
@@ -70,6 +70,25 @@
 
 .owl-partner img {
   @apply w-auto max-h-full mx-auto;
+}
+
+/* Mobile overflow fixes for partner carousel */
+@media (max-width: 767px) {
+  .owl-partner {
+    @apply overflow-hidden;
+  }
+
+  .owl-partner .owl-stage-outer {
+    @apply overflow-hidden;
+  }
+
+  .owl-partner .owl-stage {
+    @apply w-full;
+  }
+
+  .owl-partner .owl-item {
+    @apply min-w-0;
+  }
 }
 
 /* Utilities Carousel Styles */
@@ -247,6 +266,15 @@ button.slide-next
 @media (max-width: 768px) {
   .owl-carousel .owl-nav button {
     @apply w-10 h-10 text-base;
+  }
+
+  /* Prevent horizontal overflow on mobile */
+  .owl-carousel {
+    @apply max-w-full overflow-hidden;
+  }
+
+  .owl-carousel .owl-stage-outer {
+    @apply overflow-hidden;
   }
 }
 

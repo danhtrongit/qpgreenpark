@@ -28,7 +28,7 @@
     }
 @endphp
 
-<div class="h-auto lg:min-h-screen relative flex flex-col items-center justify-center">
+<div class="h-auto lg:min-h-screen relative flex flex-col items-center justify-center section-bg">
 
     <div class="container p-4 py-16">
         <div class="grid lg:grid-cols-2 gap-8 mb-12 lg:mb-16">

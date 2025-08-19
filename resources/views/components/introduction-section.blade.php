@@ -2,7 +2,7 @@
     <div class="absolute inset-0">
         <img class="w-full h-full object-cover" src="/wp-content/uploads/2025/08/qp-green-park.jpg" alt="Tổng quan">
     </div>
-    <div class="py-16 relative z-10 bg-gradient-to-b from-primary-950/80 to-primary-900/25 lg:pt-32 h-full w-full">
+    <div class="py-16 relative z-10 section-bg lg:pt-32 h-full w-full">
         <div class="container p-4">
             <h2
                 class="text-2xl font-base bg-gradient-to-r from-secondary-darker to-secondary-lighter inline-block text-transparent bg-clip-text uppercase mb-4"

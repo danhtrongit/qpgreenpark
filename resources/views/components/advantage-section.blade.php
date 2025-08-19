@@ -47,7 +47,7 @@
     $icon_url = $section_icon ? $section_icon['url'] : $default_icon;
 @endphp
 
-<div class="h-auto lg:min-h-screen relative overflow-hidden flex flex-col items-center justify-center">
+<div class="h-auto lg:min-h-screen relative overflow-hidden flex flex-col items-center justify-center section-bg">
     <div class="container p-4  py-12 lg:pt-16">
 
         <div class="grid mb-16 grid-cols-8 gap-8 max-w-4xl mx-auto items-end">

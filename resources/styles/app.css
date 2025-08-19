@@ -42,6 +42,14 @@
 
 @layer components {
 
+  /* Section Background Styles */
+  .section-bg {
+    background: linear-gradient(135deg,
+      rgba(3, 81, 57, 0.95) 0%,
+      rgba(2, 99, 66, 0.98) 50%,
+      rgba(0, 41, 33, 0.99) 100%);
+  }
+
   /* Off-canvas Menu Styles */
   #off-canvas-menu {
     transform: translateX(-100%);

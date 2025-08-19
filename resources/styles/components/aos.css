@@ -109,10 +109,24 @@ html.no-aos [data-aos] {
 
 /* Mobile optimizations */
 @media (max-width: 768px) {
+  /* FullPage mode mobile optimizations */
   #fullpage .section [data-aos],
   [data-fullpage] .section [data-aos],
   #fullpage .slide [data-aos],
   [data-fullpage] .slide [data-aos] {
     transition-duration: 0.4s; /* Slightly faster on mobile */
+  }
+
+  /* Normal scroll mode mobile optimizations */
+  [data-aos] {
+    transition-duration: 0.4s !important; /* Faster animations on mobile */
+  }
+
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    [data-aos] {
+      transition-duration: 0.2s !important;
+      animation-duration: 0.2s !important;
+    }
   }
 }

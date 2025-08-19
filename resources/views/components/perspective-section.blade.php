@@ -31,7 +31,7 @@
     }
 @endphp
 
-<div class="h-auto lg:min-h-screen relative flex flex-col items-center justify-center">
+<div class="h-auto lg:min-h-screen relative flex flex-col items-center justify-center section-bg">
 
     <div class="container text-center p-4 py-16">
 

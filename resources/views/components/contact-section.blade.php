@@ -1,4 +1,4 @@
-<div class="h-auto lg:h-screen relative grid content-center overflow-hidden">
+<div class="h-auto lg:h-screen relative grid content-center overflow-hidden section-bg">
 
     <div class="absolute inset-0 z-0 bg-no-repeat bg-contain bg-left opacity-20"
     style="background-image: url('{{ wp_get_attachment_image_url(14, 'full') }}')"
