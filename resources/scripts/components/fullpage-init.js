@@ -60,6 +60,23 @@ export default class FullPageInit {
       // Optional: disable on some touch devices nuances
       // bigSectionsDestination: 'top',
       // scrollOverflow: false,
+
+      // Callbacks for AOS integration
+      afterLoad: (origin, destination, direction) => {
+        // Dispatch custom event for AOS
+        const event = new CustomEvent('fullpage:afterLoad', {
+          detail: { origin, destination, direction }
+        });
+        document.dispatchEvent(event);
+      },
+
+      onLeave: (origin, destination, direction) => {
+        // Dispatch custom event for AOS
+        const event = new CustomEvent('fullpage:onLeave', {
+          detail: { origin, destination, direction }
+        });
+        document.dispatchEvent(event);
+      }
     });
   }
 

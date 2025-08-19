@@ -9,9 +9,6 @@ import AOSInit from './components/aos-init';
  * Application entrypoint
  */
 domReady(async () => {
-  // Initialize AOS (Animate On Scroll) first
-  const aosInit = new AOSInit();
-
   // Initialize Off-canvas Menu
   const offCanvasMenu = new OffCanvasMenu();
 
@@ -21,11 +18,16 @@ domReady(async () => {
   // Initialize Fancybox Component
   const fancyboxComponent = new FancyboxComponent();
 
-  // Initialize FullPage.js (desktop/tablet only, front page only)
+  // Initialize FullPage.js first (desktop/tablet only, front page only)
   const fullPageInit = new FullPageInit();
 
+  // Initialize AOS after FullPage.js with a small delay to ensure FullPage is ready
+  setTimeout(() => {
+    const aosInit = new AOSInit();
+    window.aosInit = aosInit;
+  }, 100);
+
   // Make them globally available for debugging
-  window.aosInit = aosInit;
   window.offCanvasMenu = offCanvasMenu;
   window.owlCarouselComponent = owlCarouselComponent;
   window.fancyboxComponent = fancyboxComponent;
