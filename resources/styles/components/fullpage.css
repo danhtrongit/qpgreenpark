@@ -1,0 +1,31 @@
+
+#fp-nav ul li a span {
+  @apply bg-secondary-mid;
+}
+
+#fp-nav ul li a.active span,
+#fp-nav ul li a span.active {
+  @apply bg-secondary-lighter scale-125;
+}
+
+#fp-nav ul li a.active .fp-sr-only{
+  @apply bg-secondary-lighter scale-125;
+}
+
+/* Tooltips style */
+#fp-nav ul li .fp-tooltip {
+  @apply bg-secondary-mid text-white px-4 text-sm opacity-0 transition-opacity duration-200;
+}
+
+/* Show tooltip on hover and keep it visible on the active dot */
+#fp-nav ul li:hover .fp-tooltip,
+#fp-nav ul li a.active + .fp-tooltip {
+  @apply opacity-100;
+}
+
+/* Hide on small screens (mobile) */
+@media (max-width: 1023px) {
+  #fp-nav {
+    display: none !important;
+  }
+}

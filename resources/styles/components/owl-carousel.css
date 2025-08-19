@@ -1,0 +1,279 @@
+/* ==========================================================================
+   Owl Carousel Custom Styles
+   ========================================================================== */
+
+/* Base Owl Carousel Styles */
+.owl-carousel {
+  @apply w-full;
+}
+
+.owl-carousel .item {
+  @apply flex items-center justify-center;
+}
+
+/* Navigation Buttons */
+.owl-carousel .owl-nav button {
+  @apply text-white bg-black/20 hover:bg-black/40 transition-all duration-300;
+  @apply w-12 h-12 rounded-full backdrop-blur-sm;
+  @apply text-lg font-bold;
+}
+
+.owl-carousel .owl-nav button.owl-next {
+  @apply right-4;
+}
+
+.owl-carousel .owl-nav button.owl-prev {
+  @apply left-4;
+}
+
+.owl-carousel .owl-nav button:disabled {
+  @apply opacity-30 cursor-not-allowed;
+}
+
+/* Advantage Owl Carousel Styles */
+.owl-advantage {
+  @apply relative;
+}
+
+.owl-advantage .item {
+  @apply block;
+  /* Override flex center alignment */
+}
+
+.owl-dots {
+  text-align: center;
+  @apply mt-4;
+}
+
+.owl-dots .owl-dot {
+  span {
+    @apply block size-2 mx-2 relative bg-primary-50 visible transition-all rounded-full;
+  }
+
+  &.active span {
+    &::before {
+      content: '';
+      @apply absolute size-4 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 block border border-secondary-light rounded-full;
+      transition: transform 0.3s ease;
+    }
+  }
+}
+
+/* Partner Owl Carousel Styles */
+.owl-partner {
+  @apply h-auto;
+}
+
+.owl-partner .item {
+  @apply h-16 sm:h-20 lg:h-24;
+}
+
+.owl-partner img {
+  @apply w-auto max-h-full mx-auto;
+}
+
+/* Utilities Carousel Styles */
+.owl-utilities .item {
+  @apply block; /* override base flex center */
+}
+
+.utilities-label-corner {
+  position: relative;
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 100%, 0 100%);
+}
+
+.utilities-label-corner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -20px;
+  width: 0;
+  height: 0;
+  border-left: 20px solid rgba(0, 0, 0, 0.8);
+  border-top: 100% solid transparent;
+}
+
+/* Utilities Navigation Buttons */
+.utilities-prev,
+.utilities-next {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.utilities-prev:disabled,
+.utilities-next:disabled {
+  @apply cursor-not-allowed pointer-events-none;
+}
+
+.utilities-prev:not(:disabled):hover,
+.utilities-next:not(:disabled):hover {
+  @apply bg-black/80 text-white transform scale-105;
+}
+
+/* Smooth transitions for carousel items */
+.owl-utilities .owl-stage {
+  @apply transition-transform duration-500 ease-out;
+}
+
+.owl-utilities .owl-item {
+  @apply transition-opacity duration-300;
+}
+
+/* Perspective Carousel Styles */
+.owl-perspective .item {
+  @apply block; /* override base flex center */
+}
+
+/* Perspective item hover effects */
+.perspective-item {
+  @apply cursor-pointer;
+}
+
+.perspective-item img {
+  @apply transition-all duration-500 ease-out;
+}
+
+.perspective-item:hover img {
+  @apply transform scale-110;
+}
+
+/* Enhanced overlay for better icon visibility */
+.perspective-item [data-fancybox] {
+  @apply block w-full h-full;
+}
+
+.perspective-item:hover [data-fancybox] {
+  @apply bg-gradient-to-t from-black/70 via-black/20 to-transparent;
+}
+
+/* Enhanced hover overlay */
+.perspective-item .hover-overlay {
+  @apply absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent;
+  @apply opacity-0 transition-all duration-300 ease-out;
+}
+
+.perspective-item:hover .hover-overlay {
+  @apply opacity-100;
+}
+
+/* Plus icon animation - perfectly centered with secondary color */
+.perspective-item .plus-icon-container {
+  @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+  @apply size-16 rounded-full bg-secondary-lighter/90 backdrop-blur-sm border-2 border-secondary-lighter shadow-lg;
+  @apply flex items-center justify-center;
+  @apply scale-75 transition-all duration-300 ease-out;
+}
+
+.perspective-item:hover .plus-icon-container {
+  @apply scale-100 bg-secondary-lighter border-secondary-lighter;
+}
+
+/* Ensure icon is perfectly centered within the circle */
+.perspective-item .plus-icon-container i {
+  @apply flex items-center justify-center text-white font-bold;
+  line-height: 1;
+}
+
+/* Enhanced ripple effect with secondary color */
+.perspective-item .ripple-effect {
+  @apply absolute inset-0 rounded-full bg-secondary-lighter/30;
+  @apply opacity-0 transition-opacity duration-300;
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.perspective-item:hover .ripple-effect {
+  @apply opacity-100;
+}
+
+/* Ripple effect */
+.perspective-item .ripple-effect {
+  @apply absolute inset-0 rounded-full bg-white/10;
+  @apply opacity-0 transition-opacity duration-300;
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.perspective-item:hover .ripple-effect {
+  @apply opacity-100;
+}
+
+/* Text overlay animation */
+.perspective-item .text-overlay {
+  @apply absolute bottom-4 left-4 right-4 text-white;
+  @apply opacity-0 transform translate-y-2 transition-all duration-300 ease-out;
+  transition-delay: 100ms;
+}
+
+.perspective-item:hover .text-overlay {
+  @apply opacity-100 transform translate-y-0;
+}
+
+/* Perspective Navigation Buttons */
+.slide-prev,
+.slide-next {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+button.slide-prev,
+button.slide-next
+{
+  @apply size-12 rounded-full bg-primary-50/5 text-white/80 hover:text-white hover:!bg-secondary-mid/70 flex items-center justify-center transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.slide-prev:disabled,
+.slide-next:disabled {
+  @apply cursor-not-allowed pointer-events-none;
+}
+
+.slide-prev:not(:disabled):hover,
+.slide-next:not(:disabled):hover {
+  @apply bg-black/80 text-white transform scale-105;
+}
+
+/* Smooth transitions for perspective carousel items */
+.owl-perspective .owl-stage {
+  @apply transition-transform duration-500 ease-out;
+}
+
+.owl-perspective .owl-item {
+  @apply transition-opacity duration-300;
+}
+
+/* Fancybox integration styles */
+.perspective-item [data-fancybox] {
+  @apply block w-full h-full;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .owl-carousel .owl-nav button {
+    @apply w-10 h-10 text-base;
+  }
+}
+
+/* Custom Animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+/* Loading State */
+.owl-loading {
+  @apply relative;
+
+  &::before {
+    @apply absolute inset-0 bg-gray-200 animate-pulse rounded-lg z-10;
+    content: '';
+  }
+}

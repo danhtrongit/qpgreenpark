@@ -1,0 +1,198 @@
+{
+    "key": "group_tien_ich",
+    "title": "Tiện ích",
+    "fields": [
+        {
+            "key": "field_tien_ich_tieu_de",
+            "label": "Tiêu đề section",
+            "name": "tien_ich_tieu_de",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Tiêu đề chính của phần tiện ích",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "resort cao cấp",
+            "maxlength": "",
+            "placeholder": "Ví dụ: resort cao cấp",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_tien_ich_phu_de",
+            "label": "Phụ đề",
+            "name": "tien_ich_phu_de",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Phụ đề của phần tiện ích",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Tiện ích phong cách",
+            "maxlength": "",
+            "placeholder": "Ví dụ: Tiện ích phong cách",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_tien_ich_so_luong",
+            "label": "Số lượng tiện ích",
+            "name": "tien_ich_so_luong",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Số lượng tiện ích để hiển thị",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 20,
+            "min": 1,
+            "max": 99,
+            "step": 1,
+            "placeholder": "20",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_tien_ich_mo_ta",
+            "label": "Mô tả",
+            "name": "tien_ich_mo_ta",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Mô tả về các tiện ích của dự án",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Dự án được quy hoạch để trở thành một \"tuyến phố thương mại sầm uất\" với các dãy shophouse hiện đại ở mặt tiền. Đây là nơi lý tưởng để phát triển các dịch vụ cao cấp, cửa hàng thời trang, và nhà hàng sang trọng. Bên cạnh đó, dự án chú trọng đến không gian sống xanh, thân thiện với môi trường thông qua các mảng xanh được tích hợp tại ban công và sân thượng của mỗi ngôi nhà, giúp tăng thêm sức sống cho khu ở.",
+            "maxlength": "",
+            "rows": 4,
+            "placeholder": "Nhập mô tả về các tiện ích...",
+            "new_lines": "br"
+        },
+        {
+            "key": "field_tien_ich_danh_sach",
+            "label": "Danh sách tiện ích",
+            "name": "tien_ich_danh_sach",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Thêm các tiện ích của dự án",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Thêm tiện ích",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_tien_ich_ten",
+                    "label": "Tên tiện ích",
+                    "name": "ten",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Tên của tiện ích",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Ví dụ: Pickleball",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_tien_ich_danh_sach"
+                },
+                {
+                    "key": "field_tien_ich_hinh_anh",
+                    "label": "Hình ảnh",
+                    "name": "hinh_anh",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Hình ảnh của tiện ích",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "jpg,jpeg,png,webp",
+                    "preview_size": "medium",
+                    "parent_repeater": "field_tien_ich_danh_sach"
+                },
+                {
+                    "key": "field_tien_ich_mo_ta_ngan",
+                    "label": "Mô tả ngắn",
+                    "name": "mo_ta_ngan",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Mô tả ngắn về tiện ích (tùy chọn)",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "rows": 2,
+                    "placeholder": "Mô tả ngắn...",
+                    "new_lines": "br",
+                    "parent_repeater": "field_tien_ich_danh_sach"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-utilities"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Cài đặt thông tin tiện ích của dự án QP Green Park",
+    "show_in_rest": 0
+}

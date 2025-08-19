@@ -1,0 +1,50 @@
+/* SVN-Gotham Light */
+@font-face {
+    font-family: 'SVN-Gotham';
+    src: url('SVN-GothamLight.woff2') format('woff2'),
+        url('SVN-GothamLight.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* SVN-Gotham Regular */
+@font-face {
+    font-family: 'SVN-Gotham';
+    src: url('SVN-Gotham.woff2') format('woff2'),
+        url('SVN-Gotham.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* SVN-Gotham Book */
+@font-face {
+    font-family: 'SVN-Gotham';
+    src: url('SVN-GothamBook.woff2') format('woff2'),
+        url('SVN-GothamBook.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* SVN-Gotham Bold */
+@font-face {
+    font-family: 'SVN-Gotham';
+    src: url('SVN-GothamBold.woff2') format('woff2'),
+        url('SVN-GothamBold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* SVN-Gotham Black */
+@font-face {
+    font-family: 'SVN-Gotham';
+    src: url('SVN-GothamBlack.woff2') format('woff2'),
+        url('SVN-GothamBlack.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+

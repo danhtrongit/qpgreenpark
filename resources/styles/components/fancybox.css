@@ -1,0 +1,143 @@
+/* ==========================================================================
+   Fancybox Custom Styles
+   ========================================================================== */
+
+/* Custom Fancybox theme */
+.fancybox__container {
+  --fancybox-bg: rgba(0, 0, 0, 0.9);
+  --fancybox-accent-color: #f59e0b; /* secondary-lighter color */
+}
+
+/* Custom toolbar styling */
+.fancybox__toolbar {
+  @apply bg-black/80 backdrop-blur-sm;
+}
+
+.fancybox__button {
+  @apply text-white/80 hover:text-white transition-colors duration-200;
+}
+
+.fancybox__button:hover {
+  @apply bg-white/10;
+}
+
+/* Custom close button */
+.fancybox__button--close {
+  @apply text-white/80 hover:text-red-400 transition-colors duration-200;
+}
+
+/* Custom counter/infobar */
+.fancybox__infobar {
+  @apply text-white/80 bg-black/60 backdrop-blur-sm rounded px-3 py-1;
+}
+
+/* Custom slideshow controls */
+.fancybox__nav .fancybox__button {
+  @apply bg-black/50 backdrop-blur-sm;
+  @apply hover:bg-black/70 transition-all duration-200;
+}
+
+/* Perspective gallery specific styles */
+.perspective-gallery-active .fancybox__container {
+  --fancybox-accent-color: #f59e0b;
+}
+
+.perspective-gallery-active .fancybox__toolbar {
+  @apply bg-gradient-to-r from-black/80 to-black/60;
+}
+
+/* Custom animations */
+.f-fadeIn {
+  animation: fancyboxFadeIn 0.3s ease-out;
+}
+
+.f-fadeOut {
+  animation: fancyboxFadeOut 0.3s ease-out;
+}
+
+@keyframes fancyboxFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fancyboxFadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+/* Custom spinner */
+.f-spinner {
+  @apply text-secondary-lighter;
+  animation: spin 1s linear infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .fancybox__toolbar {
+    @apply text-sm;
+  }
+  
+  .fancybox__button {
+    @apply w-10 h-10;
+  }
+  
+  .fancybox__infobar {
+    @apply text-xs px-2 py-1;
+  }
+}
+
+/* Custom thumbs styling */
+.fancybox__thumbs {
+  @apply bg-black/80 backdrop-blur-sm;
+}
+
+.fancybox__thumb {
+  @apply border-2 border-transparent hover:border-secondary-lighter transition-colors duration-200;
+}
+
+.fancybox__thumb.is-selected {
+  @apply border-secondary-lighter;
+}
+
+/* Custom slideshow indicator */
+.fancybox__slideshow-button.is-active {
+  @apply text-secondary-lighter;
+}
+
+/* Zoom controls styling */
+.fancybox__button--zoom-in,
+.fancybox__button--zoom-out {
+  @apply hover:text-secondary-lighter transition-colors duration-200;
+}
+
+/* Custom loading state */
+.fancybox__slide.is-loading::after {
+  @apply bg-secondary-lighter/20;
+}
+
+/* Enhanced mobile experience */
+@media (max-width: 640px) {
+  .fancybox__container {
+    --fancybox-bg: rgba(0, 0, 0, 0.95);
+  }
+  
+  .fancybox__toolbar {
+    @apply px-2;
+  }
+  
+  .fancybox__nav .fancybox__button {
+    @apply w-12 h-12;
+  }
+}

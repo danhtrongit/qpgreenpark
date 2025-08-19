@@ -1,0 +1,168 @@
+{
+  "key": "group_mat_bang",
+  "title": "Mặt bằng",
+  "fields": [
+    {
+      "key": "field_mat_bang_tieu_de",
+      "label": "Tiêu đề section",
+      "name": "mat_bang_tieu_de",
+      "type": "text",
+      "instructions": "Tiêu đề chính của phần Mặt bằng",
+      "wrapper": {"width": "50"},
+      "default_value": "Mặt bằng tổng thể",
+      "placeholder": "Ví dụ: Mặt bằng tổng thể"
+    },
+    {
+      "key": "field_mat_bang_phu_de",
+      "label": "Phụ đề",
+      "name": "mat_bang_phu_de",
+      "type": "text",
+      "instructions": "Phụ đề cho phần Mặt bằng",
+      "wrapper": {"width": "50"},
+      "default_value": "Sơ đồ dự án"
+    },
+    {
+      "key": "field_mat_bang_danh_sach",
+      "label": "Danh sách mặt bằng",
+      "name": "mat_bang_danh_sach",
+      "type": "repeater",
+      "instructions": "Thêm các mặt bằng (hình ảnh + mô tả + file PDF/URL)",
+      "layout": "row",
+      "button_label": "+ Thêm mặt bằng",
+      "sub_fields": [
+        {
+          "key": "field_mat_bang_ten",
+          "label": "Tên hiển thị",
+          "name": "ten",
+          "type": "text",
+          "wrapper": {"width": "30"},
+          "placeholder": "Ví dụ: Mặt bằng TH.T1 - Căn giữa"
+        },
+        {
+          "key": "field_mat_bang_loai",
+          "label": "Loại sản phẩm",
+          "name": "loai",
+          "type": "select",
+          "choices": {"townhouse": "Nhà ở Liên kế (Townhouse)", "shophouse": "Nhà ở Thương mại (Shophouse)"},
+          "ui": 1,
+          "wrapper": {"width": "30"}
+        },
+        {
+          "key": "field_mat_bang_ma_mau",
+          "label": "Mã mẫu",
+          "name": "ma_mau",
+          "type": "text",
+          "wrapper": {"width": "20"},
+          "placeholder": "VD: TH.T1, SH.C2"
+        },
+        {
+          "key": "field_mat_bang_vi_tri",
+          "label": "Vị trí",
+          "name": "vi_tri",
+          "type": "select",
+          "choices": {"can-giua": "Căn giữa", "can-goc": "Căn góc"},
+          "ui": 1,
+          "wrapper": {"width": "20"}
+        },
+        {
+          "key": "field_mat_bang_quy_cach",
+          "label": "Quy cách",
+          "name": "quy_cach",
+          "type": "text",
+          "placeholder": "VD: 1 trệt, 2 lầu, 1 tum mái",
+          "wrapper": {"width": "50"}
+        },
+        {
+          "key": "field_mat_bang_kich_thuoc_dat",
+          "label": "Kích thước đất",
+          "name": "kich_thuoc_dat",
+          "type": "text",
+          "placeholder": "VD: 5.0m x 20.0m",
+          "wrapper": {"width": "25"}
+        },
+        {
+          "key": "field_mat_bang_dien_tich_dat",
+          "label": "Diện tích đất (m²)",
+          "name": "dien_tich_dat",
+          "type": "number",
+          "step": 0.01,
+          "wrapper": {"width": "25"}
+        },
+        {
+          "key": "field_mat_bang_tong_xd",
+          "label": "Tổng diện tích xây dựng (m²)",
+          "name": "tong_dien_tich_xay_dung",
+          "type": "number",
+          "step": 0.01,
+          "wrapper": {"width": "25"}
+        },
+        {
+          "key": "field_mat_bang_dien_tich_tang",
+          "label": "Diện tích xây dựng các tầng",
+          "name": "dien_tich_tang",
+          "type": "repeater",
+          "layout": "table",
+          "button_label": "+ Thêm tầng",
+          "sub_fields": [
+            {"key": "field_mat_bang_ten_tang", "label": "Tên tầng", "name": "ten_tang", "type": "text", "wrapper": {"width": "50"}, "placeholder": "Tầng 1, Tầng 2, Tầng tum mái"},
+            {"key": "field_mat_bang_dt_tang", "label": "Diện tích (m²)", "name": "dien_tich", "type": "number", "step": 0.01, "wrapper": {"width": "50"}}
+          ]
+        },
+        {
+          "key": "field_mat_bang_mo_ta",
+          "label": "Mô tả ngắn",
+          "name": "mo_ta",
+          "type": "textarea",
+          "wrapper": {"width": "50"},
+          "rows": 3,
+          "new_lines": "br",
+          "placeholder": "Ghi chú thêm (tuỳ chọn)"
+        },
+        {
+          "key": "field_mat_bang_hinh_anh",
+          "label": "Hình ảnh",
+          "name": "hinh_anh",
+          "type": "image",
+          "return_format": "array",
+          "library": "all",
+          "mime_types": "jpg,jpeg,png,svg, webp",
+          "preview_size": "medium",
+          "wrapper": {"width": "25"}
+        },
+        {
+          "key": "field_mat_bang_file",
+          "label": "File PDF",
+          "name": "file",
+          "type": "file",
+          "return_format": "array",
+          "library": "all",
+          "mime_types": "pdf",
+          "wrapper": {"width": "25"}
+        },
+        {
+          "key": "field_mat_bang_url",
+          "label": "URL (tuỳ chọn)",
+          "name": "url",
+          "type": "url",
+          "instructions": "Nếu không upload file, có thể nhập URL dẫn tới tài liệu",
+          "wrapper": {"width": "50"}
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {"param": "options_page", "operator": "==", "value": "acf-options-floorplan"}
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Cấu hình nội dung phần Mặt bằng cho trang template Mặt bằng",
+  "show_in_rest": 0
+}
+

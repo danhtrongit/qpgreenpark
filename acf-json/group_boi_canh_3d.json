@@ -1,0 +1,156 @@
+{
+    "key": "group_boi_canh_3d",
+    "title": "Bối cảnh 3D",
+    "fields": [
+        {
+            "key": "field_boi_canh_3d_tieu_de",
+            "label": "Tiêu đề section",
+            "name": "boi_canh_3d_tieu_de",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Tiêu đề chính của phần bối cảnh 3D",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Tổng thể dự án",
+            "maxlength": "",
+            "placeholder": "Ví dụ: Tổng thể dự án",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_boi_canh_3d_phu_de",
+            "label": "Phụ đề",
+            "name": "boi_canh_3d_phu_de",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Phụ đề của phần bối cảnh 3D",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Bối cảnh 3d",
+            "maxlength": "",
+            "placeholder": "Ví dụ: Bối cảnh 3d",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_boi_canh_3d_danh_sach",
+            "label": "Danh sách hình ảnh 3D",
+            "name": "boi_canh_3d_danh_sach",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Thêm các hình ảnh bối cảnh 3D của dự án",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Thêm hình ảnh 3D",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_boi_canh_3d_hinh_anh",
+                    "label": "Hình ảnh",
+                    "name": "hinh_anh",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Chọn hình ảnh bối cảnh 3D",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "jpg,jpeg,png,webp",
+                    "preview_size": "medium",
+                    "parent_repeater": "field_boi_canh_3d_danh_sach"
+                },
+                {
+                    "key": "field_boi_canh_3d_tieu_de_hinh",
+                    "label": "Tiêu đề hình ảnh",
+                    "name": "tieu_de_hinh",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Tiêu đề cho hình ảnh (tùy chọn)",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Ví dụ: Tổng thể dự án - Góc nhìn 1",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_boi_canh_3d_danh_sach"
+                },
+                {
+                    "key": "field_boi_canh_3d_mo_ta",
+                    "label": "Mô tả",
+                    "name": "mo_ta",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Mô tả về hình ảnh (tùy chọn)",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "rows": 2,
+                    "placeholder": "Mô tả ngắn về hình ảnh...",
+                    "new_lines": "br",
+                    "parent_repeater": "field_boi_canh_3d_danh_sach"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-library"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Cài đặt thông tin bối cảnh 3D của dự án QP Green Park",
+    "show_in_rest": 0
+}

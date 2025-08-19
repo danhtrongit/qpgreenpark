@@ -1,0 +1,113 @@
+{
+    "key": "group_doi_tac_chien_luoc",
+    "title": "Đối tác chiến lược",
+    "fields": [
+        {
+            "key": "field_doi_tac_chien_luoc_danh_sach",
+            "label": "Danh sách đối tác chiến lược",
+            "name": "doi_tac_chien_luoc_danh_sach",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Thêm các đối tác chiến lược của dự án",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 20,
+            "collapsed": "field_doi_tac_chien_luoc_ten",
+            "button_label": "Thêm đối tác chiến lược",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_doi_tac_chien_luoc_logo",
+                    "label": "Logo",
+                    "name": "logo",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Tải lên logo của đối tác",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "jpg,jpeg,png,svg,webp",
+                    "preview_size": "thumbnail",
+                    "parent_repeater": "field_doi_tac_chien_luoc_danh_sach"
+                },
+                {
+                    "key": "field_doi_tac_chien_luoc_ten",
+                    "label": "Tên công ty",
+                    "name": "ten_cong_ty",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Nhập tên công ty đối tác",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "35",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Tên công ty đối tác",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_doi_tac_chien_luoc_danh_sach"
+                },
+                {
+                    "key": "field_doi_tac_chien_luoc_website",
+                    "label": "Website",
+                    "name": "website",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "Đường dẫn website của đối tác",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "35",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "https://example.com",
+                    "parent_repeater": "field_doi_tac_chien_luoc_danh_sach"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-partners"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Danh sách các đối tác chiến lược của dự án QP Green Park",
+    "show_in_rest": 0
+}

@@ -1,0 +1,177 @@
+{
+    "key": "group_tai_lieu_du_an",
+    "title": "Tài liệu dự án",
+    "fields": [
+        {
+            "key": "field_tai_lieu_tieu_de",
+            "label": "Tiêu đề section",
+            "name": "tai_lieu_tieu_de",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Tiêu đề chính của phần tài liệu dự án",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Bản vẽ tổng thể",
+            "maxlength": "",
+            "placeholder": "Ví dụ: Bản vẽ tổng thể",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_tai_lieu_phu_de",
+            "label": "Phụ đề",
+            "name": "tai_lieu_phu_de",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Phụ đề của phần tài liệu dự án",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Tài liệu dự án",
+            "maxlength": "",
+            "placeholder": "Ví dụ: Tài liệu dự án",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_tai_lieu_danh_sach",
+            "label": "Danh sách tài liệu",
+            "name": "tai_lieu_danh_sach",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Thêm các tài liệu của dự án",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Thêm tài liệu",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_tai_lieu_ten",
+                    "label": "Tên tài liệu",
+                    "name": "ten",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Tên của tài liệu",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Ví dụ: Bản vẽ tổng thể",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_tai_lieu_danh_sach"
+                },
+                {
+                    "key": "field_tai_lieu_mo_ta",
+                    "label": "Mô tả",
+                    "name": "mo_ta",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Mô tả về tài liệu",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "rows": 2,
+                    "placeholder": "Mô tả ngắn về tài liệu...",
+                    "new_lines": "br",
+                    "parent_repeater": "field_tai_lieu_danh_sach"
+                },
+                {
+                    "key": "field_tai_lieu_hinh_anh",
+                    "label": "Hình ảnh đại diện",
+                    "name": "hinh_anh",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Hình ảnh đại diện cho tài liệu",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "jpg,jpeg,png,webp",
+                    "preview_size": "medium",
+                    "parent_repeater": "field_tai_lieu_danh_sach"
+                },
+                {
+                    "key": "field_tai_lieu_file",
+                    "label": "File tài liệu",
+                    "name": "file",
+                    "aria-label": "",
+                    "type": "file",
+                    "instructions": "Upload file tài liệu (PDF, DOC, etc.)",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_size": "",
+                    "max_size": "50MB",
+                    "mime_types": "pdf,doc,docx,xls,xlsx,ppt,pptx,zip,rar",
+                    "parent_repeater": "field_tai_lieu_danh_sach"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-library"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Cài đặt thông tin tài liệu dự án QP Green Park",
+    "show_in_rest": 0
+}

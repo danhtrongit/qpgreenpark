@@ -1,0 +1,105 @@
+
+/* noto-serif-display-300 - latin_vietnamese */
+@font-face {
+  font-display: swap;
+  font-family: 'Noto Serif Display';
+  font-style: normal;
+  font-weight: 300;
+  src: url('@fonts/noto-serif-display/noto-serif-display-v26-latin_vietnamese-300.woff2') format('woff2');
+}
+
+/* noto-serif-display-regular - latin_vietnamese */
+@font-face {
+  font-display: swap;
+  font-family: 'Noto Serif Display';
+  font-style: normal;
+  font-weight: 400;
+  src: url('@fonts/noto-serif-display/noto-serif-display-v26-latin_vietnamese-regular.woff2') format('woff2');
+}
+
+/* noto-serif-display-500 - latin_vietnamese */
+@font-face {
+  font-display: swap;
+  font-family: 'Noto Serif Display';
+  font-style: normal;
+  font-weight: 500;
+  src: url('@fonts/noto-serif-display/noto-serif-display-v26-latin_vietnamese-500.woff2') format('woff2');
+}
+
+/* noto-serif-display-600 - latin_vietnamese */
+@font-face {
+  font-display: swap;
+  font-family: 'Noto Serif Display';
+  font-style: normal;
+  font-weight: 600;
+  src: url('@fonts/noto-serif-display/noto-serif-display-v26-latin_vietnamese-600.woff2') format('woff2');
+}
+
+/* noto-serif-display-700 - latin_vietnamese */
+@font-face {
+  font-display: swap;
+  font-family: 'Noto Serif Display';
+  font-style: normal;
+  font-weight: 700;
+  src: url('@fonts/noto-serif-display/noto-serif-display-v26-latin_vietnamese-700.woff2') format('woff2');
+}
+
+/* noto-serif-display-800 - latin_vietnamese */
+@font-face {
+  font-display: swap;
+  font-family: 'Noto Serif Display';
+  font-style: normal;
+  font-weight: 800;
+  src: url('@fonts/noto-serif-display/noto-serif-display-v26-latin_vietnamese-800.woff2') format('woff2');
+}
+
+/* noto-serif-display-900 - latin_vietnamese */
+@font-face {
+  font-display: swap;
+  font-family: 'Noto Serif Display';
+  font-style: normal;
+  font-weight: 900;
+  src: url('@fonts/noto-serif-display/noto-serif-display-v26-latin_vietnamese-900.woff2') format('woff2');
+}
+
+/* SVN-Gotham Font Family */
+
+/* SVN-Gotham Light */
+@font-face {
+  font-family: 'SVN-Gotham';
+  src: url('@fonts/svn-gotham/SVN-GothamLight.woff2') format('woff2'),
+       url('@fonts/svn-gotham/SVN-GothamLight.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* SVN-Gotham Book */
+@font-face {
+  font-family: 'SVN-Gotham';
+  src: url('@fonts/svn-gotham/SVN-GothamBook.woff2') format('woff2'),
+       url('@fonts/svn-gotham/SVN-GothamBook.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* SVN-Gotham Bold */
+@font-face {
+  font-family: 'SVN-Gotham';
+  src: url('@fonts/svn-gotham/SVN-GothamBold.woff2') format('woff2'),
+       url('@fonts/svn-gotham/SVN-GothamBold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* SVN-Gotham Black */
+@font-face {
+  font-family: 'SVN-Gotham';
+  src: url('@fonts/svn-gotham/SVN-GothamBlack.woff2') format('woff2'),
+       url('@fonts/svn-gotham/SVN-GothamBlack.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
