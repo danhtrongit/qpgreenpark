@@ -1,0 +1,329 @@
+{
+    "key": "group_doi_tac",
+    "title": "Đối tác",
+    "fields": [
+        {
+            "key": "field_doi_tac_hinh_anh",
+            "label": "Hình ảnh section đối tác",
+            "name": "doi_tac_hinh_anh",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Hình ảnh hiển thị bên trái section đối tác",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "jpg,jpeg,png,svg,webp",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_doi_tac_alt_text",
+            "label": "Alt text cho hình ảnh",
+            "name": "doi_tac_alt_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Mô tả hình ảnh cho SEO và accessibility",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Đối tác",
+            "maxlength": "",
+            "placeholder": "Mô tả hình ảnh...",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_chu_dau_tu_logo",
+            "label": "Logo chủ đầu tư",
+            "name": "chu_dau_tu_logo",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Tải lên logo của chủ đầu tư dự án",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "jpg,jpeg,png,svg",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_chu_dau_tu_ten_cong_ty",
+            "label": "Tên công ty",
+            "name": "chu_dau_tu_ten_cong_ty",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Nhập tên công ty chủ đầu tư",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "QP Green Park",
+            "maxlength": "",
+            "placeholder": "Ví dụ: QP Green Park",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_chu_dau_tu_mo_ta",
+            "label": "Mô tả",
+            "name": "chu_dau_tu_mo_ta",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Mô tả ngắn về chủ đầu tư (tùy chọn)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 4,
+            "placeholder": "Nhập mô tả về chủ đầu tư...",
+            "new_lines": "wpautop"
+        },
+        {
+            "key": "field_chu_dau_tu_website",
+            "label": "Website",
+            "name": "chu_dau_tu_website",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Đường dẫn website của chủ đầu tư",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "https://example.com"
+        },
+        {
+            "key": "field_doi_tac_chien_luoc_danh_sach",
+            "label": "Danh sách đối tác chiến lược",
+            "name": "doi_tac_chien_luoc_danh_sach",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Thêm các đối tác chiến lược của dự án",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 20,
+            "collapsed": "field_doi_tac_chien_luoc_ten",
+            "button_label": "Thêm đối tác chiến lược",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_doi_tac_chien_luoc_logo",
+                    "label": "Logo",
+                    "name": "logo",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Tải lên logo của đối tác",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "jpg,jpeg,png,svg,webp",
+                    "preview_size": "thumbnail",
+                    "parent_repeater": "field_doi_tac_chien_luoc_danh_sach"
+                },
+                {
+                    "key": "field_doi_tac_chien_luoc_ten",
+                    "label": "Tên công ty",
+                    "name": "ten_cong_ty",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Nhập tên công ty đối tác",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "35",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Tên công ty đối tác",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_doi_tac_chien_luoc_danh_sach"
+                },
+                {
+                    "key": "field_doi_tac_chien_luoc_website",
+                    "label": "Website",
+                    "name": "website",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "Đường dẫn website của đối tác",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "35",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "https://example.com",
+                    "parent_repeater": "field_doi_tac_chien_luoc_danh_sach"
+                }
+            ]
+        },
+        {
+            "key": "field_doi_tac_phan_phoi_danh_sach",
+            "label": "Danh sách đối tác phân phối",
+            "name": "doi_tac_phan_phoi_danh_sach",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Thêm các đối tác phân phối chính thức của dự án",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 20,
+            "collapsed": "field_doi_tac_phan_phoi_ten",
+            "button_label": "Thêm đối tác phân phối",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_doi_tac_phan_phoi_logo",
+                    "label": "Logo",
+                    "name": "logo",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Tải lên logo của đối tác phân phối",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "jpg,jpeg,png,svg,webp",
+                    "preview_size": "thumbnail",
+                    "parent_repeater": "field_doi_tac_phan_phoi_danh_sach"
+                },
+                {
+                    "key": "field_doi_tac_phan_phoi_ten",
+                    "label": "Tên công ty",
+                    "name": "ten_cong_ty",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Nhập tên công ty đối tác phân phối",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "35",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Tên công ty đối tác",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_doi_tac_phan_phoi_danh_sach"
+                },
+                {
+                    "key": "field_doi_tac_phan_phoi_website",
+                    "label": "Website",
+                    "name": "website",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "Đường dẫn website của đối tác phân phối",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "35",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "https://example.com",
+                    "parent_repeater": "field_doi_tac_phan_phoi_danh_sach"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "partners"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Thông tin về đối tác, chủ đầu tư và các đối tác chiến lược, phân phối của dự án QP Green Park",
+    "show_in_rest": 0
+}

@@ -115,7 +115,7 @@ function render_partners_page() {
             if (function_exists('acf_form')) {
                 acf_form([
                     'post_id' => 'options',
-                    'field_groups' => ['group_doi_tac_section', 'group_chu_dau_tu', 'group_doi_tac_chien_luoc', 'group_doi_tac_phan_phoi'],
+                    'field_groups' => ['group_doi_tac'],
                     'form' => false,
                     'return' => '',
                 ]);

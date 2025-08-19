@@ -168,15 +168,14 @@ function get_doi_tac_phan_phoi() {
 }
 
 /**
- * Get partner section settings
+ * Get partner section information
  *
  * @return array
  */
 function get_doi_tac_section() {
     return [
-        'hinh_anh' => get_field('doi_tac_section_hinh_anh', 'option'),
-        'tieu_de' => get_field('doi_tac_section_tieu_de', 'option') ?: 'Chủ đầu tư',
-        'alt_text' => get_field('doi_tac_section_alt_text', 'option') ?: 'Đối tác',
+        'hinh_anh' => get_field('doi_tac_hinh_anh', 'option'),
+        'alt_text' => get_field('doi_tac_alt_text', 'option') ?: 'Đối tác',
     ];
 }
 
