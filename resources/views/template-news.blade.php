@@ -20,7 +20,7 @@
 
     @foreach($categories as $term)
       @php if (in_array($term->slug, $exclude_slugs)) continue; @endphp
-      <div class="section" data-anchor="{{ $term->slug }}" data-tooltip="{{ $term->name }}">
+      <div class="section" data-anchor="{{ $term->slug }}" data-tooltip="{{ $term->name }}" data-aos="fade-up" data-aos-duration="800" data-aos-delay="{{ $loop->index * 100 }}">
         <x-news-section :category-slug="$term->slug" :title="$term->name" :limit="8" />
       </div>
     @endforeach

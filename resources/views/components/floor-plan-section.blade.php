@@ -54,12 +54,12 @@
 
 <div class="h-auto lg:min-h-screen relative flex flex-col items-center justify-center">
     <div class="container text-center p-4 py-16">
-        <h2 class="text-2xl font-base bg-gradient-to-r from-secondary-darker to-secondary-lighter inline-block text-transparent bg-clip-text uppercase mb-4">
+        <h2 class="text-2xl font-base bg-gradient-to-r from-secondary-darker to-secondary-lighter inline-block text-transparent bg-clip-text uppercase mb-4" data-aos="fade-down" data-aos-duration="600" data-aos-delay="200">
             {{ $subtitle }}
         </h2>
-        <h1 class="text-4xl font-bold uppercase mb-8 lg:mb-16">{{ $title }}</h1>
+        <h1 class="text-4xl font-bold uppercase mb-8 lg:mb-16" data-aos="fade-up" data-aos-duration="600" data-aos-delay="400">{{ $title }}</h1>
 
-        <div class="floorplan-carousel-wrapper relative">
+        <div class="floorplan-carousel-wrapper relative" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
             <div class="owl-carousel owl-floorplan">
                 @foreach ($items as $index => $item)
                     @php

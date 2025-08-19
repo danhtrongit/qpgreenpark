@@ -3,6 +3,7 @@
 @import './components/fancybox.css';
 @import './components/fancybox.css';
 @import './components/fullpage.css';
+@import './components/aos.css';
 
 
 @tailwind base;

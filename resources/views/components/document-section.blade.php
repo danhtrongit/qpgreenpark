@@ -46,14 +46,15 @@
     <div class="container text-center p-4 py-16">
 
         <h2
-            class="text-2xl font-base bg-gradient-to-r from-secondary-darker to-secondary-lighter inline-block text-transparent bg-clip-text uppercase mb-4">
+            class="text-2xl font-base bg-gradient-to-r from-secondary-darker to-secondary-lighter inline-block text-transparent bg-clip-text uppercase mb-4"
+            data-aos="fade-down" data-aos-duration="600" data-aos-delay="200">
             {{ $document_subtitle }}
         </h2>
-        <h1 class="text-4xl font-bold uppercase mb-8 lg:mb-16">{{ $document_title }}</h1>
+        <h1 class="text-4xl font-bold uppercase mb-8 lg:mb-16" data-aos="fade-up" data-aos-duration="600" data-aos-delay="400">{{ $document_title }}</h1>
 
 
         {{-- document carousel with navigation --}}
-        <div class="document-carousel-wrapper relative">
+        <div class="document-carousel-wrapper relative" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
             <div class="owl-carousel owl-document">
                 @foreach ($document_list as $index => $item)
                     @php

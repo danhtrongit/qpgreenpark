@@ -11,7 +11,7 @@
             <a class="brand" href="{{ home_url('/') }}">
                 <img
                     class="w-40 lg:w-60 h-auto"
-                    src="https://quang-phuc.test/wp-content/uploads/2025/08/logo-text.svg"
+                    src="/wp-content/uploads/2025/08/logo-text.svg"
                     alt="{{ \App\get_company_name() }}"
                 >
             </a>
@@ -35,7 +35,7 @@
                     <div class="mb-8 company-logo">
                         <img
                             class="w-40 lg:w-60 mx-auto h-auto"
-                            src="https://quang-phuc.test/wp-content/uploads/2025/08/logo.svg"
+                            src="/wp-content/uploads/2025/08/logo.svg"
                             alt="{{ \App\get_company_name() }}"
                         >
                     </div>

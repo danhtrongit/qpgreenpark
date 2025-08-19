@@ -5,7 +5,7 @@
 
             {{-- Thông tin tổng quan --}}
 
-            <div class="col-span-1">
+            <div class="col-span-1" data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">
                 <h2 class="text-2xl lg:text-4xl font-base uppercase mb-4 lg:mb-8">
                     Thông tin <strong
                         class="bg-gradient-to-r from-secondary-darker to-secondary-lighter inline-block text-transparent bg-clip-text">tổng
@@ -92,8 +92,8 @@
             </div>
 
 
-            <div class="col-span-1 h-full">
-                <img class="w-full h-full object-cover" src="https://quang-phuc.test/wp-content/uploads/2025/08/qp-green-park.jpg" alt="">
+            <div class="col-span-1 h-full" data-aos="fade-left" data-aos-duration="800" data-aos-delay="400">
+                <img class="w-full h-full object-cover" src="/wp-content/uploads/2025/08/qp-green-park.jpg" alt="">
             </div>
         </div>
 

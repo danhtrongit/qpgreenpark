@@ -19,7 +19,7 @@
             <a class="brand" href="{{ home_url('/') }}">
                 <img
                     class="w-12 lg:w-20"
-                    src="https://quang-phuc.test/wp-content/uploads/2025/08/logo.svg"
+                    src="/wp-content/uploads/2025/08/logo.svg"
                     alt="{{ \App\get_company_name() }}"
                 >
             </a>

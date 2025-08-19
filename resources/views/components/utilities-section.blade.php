@@ -32,7 +32,7 @@
 
     <div class="container p-4 py-16">
         <div class="grid lg:grid-cols-2 gap-8 mb-12 lg:mb-16">
-            <div class="col-span-1 flex gap-8 items-end">
+            <div class="col-span-1 flex gap-8 items-end" data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">
                 <div
                     class="text-9xl font-bold font-serif bg-gradient-to-r from-secondary-darker to-secondary-lighter inline-block text-transparent bg-clip-text">
                     {{ $utilities_count }}</div>
@@ -43,13 +43,13 @@
                     <h1 class="text-4xl font-bold uppercase">{{ $utilities_title }}</h1>
                 </div>
             </div>
-            <div class="col-span-1">
+            <div class="col-span-1" data-aos="fade-left" data-aos-duration="800" data-aos-delay="400">
                 <p>{{ $utilities_description }}</p>
             </div>
         </div>
 
         {{-- carousel tiện ích --}}
-        <div class="utilities-carousel-wrapper relative">
+        <div class="utilities-carousel-wrapper relative" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
             <div class="owl-carousel owl-utilities">
                 @foreach($utilities_list as $utility)
                     <div class="item utilities-item relative overflow-hidden rounded-2xl pt-[56.25%]">

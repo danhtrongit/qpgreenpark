@@ -7,8 +7,8 @@
 
     <div class="container max-w-5xl p-4 py-8 mx-auto relative z-10">
         <div class="grid lg:grid-cols-2 items-center gap-8 lg:gap-16">
-            <div class="col-span-1">
-                <div class="mb-8">
+            <div class="col-span-1" data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">
+                <div class="mb-8" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="400">
                     {!! wp_get_attachment_image(7, 'full', '', 'class=w-40 h-auto') !!}
                 </div>
                 <div class="space-y-4">
@@ -104,7 +104,7 @@
                     @endif
                 </div>
             </div>
-            <div class="col-span-1">
+            <div class="col-span-1" data-aos="fade-left" data-aos-duration="800" data-aos-delay="600">
                 <x-form.form-contact/>
             </div>
         </div>

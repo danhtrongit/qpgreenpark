@@ -11,10 +11,10 @@
 <div class="h-auto lg:min-h-screen relative flex flex-col items-center justify-center">
 
     <div class="container p-4 py-12 lg:pt-12">
-        <h2 class="text-2xl lg:text-4xl font-base uppercase mb-4 text-center">
+        <h2 class="text-2xl lg:text-4xl font-base uppercase mb-4 text-center" data-aos="fade-down" data-aos-duration="600" data-aos-delay="200">
             Chủ đầu tư
         </h2>
-        <div class="flex items-center">
+        <div class="flex items-center" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
             <div class="bg-secondary-lighter flex-1 h-0.5 w-full opacity-10"></div>
             <div class="size-3 bg-secondary-light rounded-full opacity-20"></div>
             <div class="bg-secondary-lighter flex-1 h-0.5 w-full opacity-10"></div>
@@ -23,15 +23,15 @@
 
         @if ($chu_dau_tu['logo'])
             <img class="w-40 lg:w-60 mx-auto" src="{{ $chu_dau_tu['logo']['url'] }}"
-                alt="{{ $chu_dau_tu['ten_cong_ty'] }}">
+                alt="{{ $chu_dau_tu['ten_cong_ty'] }}" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="400">
         @else
             <img class="w-40 lg:w-60 mx-auto" src="/wp-content/uploads/2025/08/logo.svg"
-                alt="{{ $chu_dau_tu['ten_cong_ty'] }}">
+                alt="{{ $chu_dau_tu['ten_cong_ty'] }}" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="400">
         @endif
 
         <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 mt-8">
 
-            <div class="text-center">
+            <div class="text-center" data-aos="fade-right" data-aos-duration="800" data-aos-delay="600">
 
                 <h2
                     class="text-lg lg:text-2xl font-base bg-gradient-to-r from-secondary-darker to-secondary-lighter inline-block text-transparent bg-clip-text uppercase mb-4 lg:mb-8">
@@ -103,7 +103,7 @@
             </div>
 
 
-            <div class="text-center">
+            <div class="text-center" data-aos="fade-left" data-aos-duration="800" data-aos-delay="600">
 
                 <h2
                     class="text-lg lg:text-2xl font-base bg-gradient-to-r from-secondary-darker to-secondary-lighter inline-block text-transparent bg-clip-text uppercase mb-4 lg:mb-8">

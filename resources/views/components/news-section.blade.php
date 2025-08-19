@@ -2,7 +2,7 @@
 
     <div class="container p-4 py-12 lg:pt-16">
 
-        <h2 class="text-2xl text-center lg:text-4xl uppercase font-medium mb-8">
+        <h2 class="text-2xl text-center lg:text-4xl uppercase font-medium mb-8" data-aos="fade-down" data-aos-duration="600" data-aos-delay="200">
             {{ $title ?? __('Tin tức', 'sage') }}
             <strong
                 class="bg-gradient-to-r from-secondary-darker to-secondary-lighter inline-block text-transparent bg-clip-text">
@@ -11,7 +11,7 @@
         </h2>
 
         @if($posts && count($posts) > 0)
-            <div class="owl-carousel owl-news">
+            <div class="owl-carousel owl-news" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
                 @foreach($posts as $item)
                     <div class="item">
                         <x-news-card :post="$item" />

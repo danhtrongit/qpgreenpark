@@ -43,12 +43,12 @@
     <div class="container p-4  py-12 lg:pt-16">
 
         <div class="grid mb-16 grid-cols-8 gap-8 max-w-4xl mx-auto items-end">
-            
+
             <div class="hidden lg:block lg:col-span-3"></div>
-            <div class="col-span-3 lg:col-span-2">
+            <div class="col-span-3 lg:col-span-2" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="200">
                 <img src="/wp-content/uploads/2025/08/6-dac-quyen.svg" alt="">
             </div>
-            <div class="col-span-5 lg:col-span-3">
+            <div class="col-span-5 lg:col-span-3" data-aos="fade-left" data-aos-duration="800" data-aos-delay="400">
                 <h2 class="text-lg lg:text-2xl font-base uppercase mb-2 lg:mb-4 opacity-75">
                     Chỉ có tại
                 </h2>
@@ -67,7 +67,7 @@
 
 
         <!-- Advantage Owl Carousel -->
-        <div class="owl-carousel owl-advantage">
+        <div class="owl-carousel owl-advantage" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
             @foreach ($advantages as $index => $advantage)
                 <div class="item">
                     <div class="relative rounded overflow-hidden">
