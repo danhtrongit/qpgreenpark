@@ -5,6 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @php(do_action('get_header'))
     @php(wp_head())
+
+    {{-- Fallback for AOS animations if JavaScript fails --}}
+    <script>
+      // Add class to html element to indicate JS is working
+      document.documentElement.classList.add('js-enabled');
+
+      // Fallback timeout to show content if animations don't start
+      setTimeout(function() {
+        if (!document.querySelector('.aos-animate')) {
+          document.documentElement.classList.add('no-aos');
+        }
+      }, 3000);
+    </script>
+
+    <noscript>
+      <style>
+        [data-aos] {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      </style>
+    </noscript>
   </head>
 
   <body @php(body_class())>

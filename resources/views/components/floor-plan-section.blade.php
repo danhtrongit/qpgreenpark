@@ -52,7 +52,7 @@
     }
 @endphp
 
-<div class="h-auto lg:min-h-screen relative flex flex-col items-center justify-center">
+<div class="h-auto lg:min-h-screen relative flex flex-col items-center justify-center overflow-hidden">
     <div class="container text-center p-4 py-16">
         <h2 class="text-2xl font-base bg-gradient-to-r from-secondary-darker to-secondary-lighter inline-block text-transparent bg-clip-text uppercase mb-4" data-aos="fade-down" data-aos-duration="600" data-aos-delay="200">
             {{ $subtitle }}

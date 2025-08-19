@@ -1,11 +1,11 @@
 {
   "app": {
     "js": [
-      "js/runtime.b3d092.js",
-      "js/app.ce27eb.js"
+      "js/runtime.1f2c67.js",
+      "js/app.3f4142.js"
     ],
     "css": [
-      "css/app.1334f1.css"
+      "css/app.c47ba7.css"
     ],
     "dependencies": [
       "jquery"
@@ -13,7 +13,7 @@
   },
   "editor": {
     "js": [
-      "js/runtime.b3d092.js",
+      "js/runtime.1f2c67.js",
       "js/editor.0344c8.js"
     ],
     "css": [

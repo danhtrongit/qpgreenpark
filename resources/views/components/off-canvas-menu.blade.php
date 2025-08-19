@@ -1,11 +1,16 @@
 <div id="off-canvas-menu"
-     class="fixed top-0 left-0 z-50 h-screen w-screen bg-primary-950 shadow-2xl"
+     class="fixed top-0 left-0 z-50 h-screen w-screen bg-primary-950 shadow-2xl overflow-hidden"
      tabindex="-1"
      aria-labelledby="off-canvas-menu-label"
      aria-modal="true"
      role="dialog">
 
-    <div class="container h-full mx-auto p-4 pt-16 flex flex-col">
+    {{-- Decorative floating shapes --}}
+    <div class="menu-shape-1"></div>
+    <div class="menu-shape-2"></div>
+    <div class="menu-shape-3"></div>
+
+    <div class="container h-full mx-auto p-4 pt-16 flex flex-col relative z-10">
         {{-- Header --}}
         <div class="flex items-center justify-between mb-8">
             <a class="brand" href="{{ home_url('/') }}">

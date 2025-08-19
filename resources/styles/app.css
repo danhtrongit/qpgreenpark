@@ -45,18 +45,87 @@
   /* Off-canvas Menu Styles */
   #off-canvas-menu {
     transform: translateX(-100%);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    backdrop-filter: blur(10px);
+    background: linear-gradient(135deg,
+      rgba(3, 81, 57, 0.95) 0%,
+      rgba(2, 99, 66, 0.98) 50%,
+      rgba(0, 41, 33, 0.99) 100%);
   }
 
   #off-canvas-menu.open {
     transform: translateX(0);
   }
 
+  /* Decorative shapes */
+  #off-canvas-menu::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(45deg, rgba(192, 147, 58, 0.1), rgba(229, 198, 124, 0.05));
+    border-radius: 50%;
+    animation: floatShape1 8s ease-in-out infinite;
+    z-index: 1;
+  }
+
+  #off-canvas-menu::after {
+    content: '';
+    position: absolute;
+    bottom: 10%;
+    left: -30px;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, rgba(8, 193, 121, 0.08), rgba(44, 219, 145, 0.04));
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    animation: floatShape2 10s ease-in-out infinite reverse;
+    z-index: 1;
+  }
+
+  /* Additional floating shapes */
+  .menu-shape-1 {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(45deg, rgba(192, 147, 58, 0.06), transparent);
+    border-radius: 50%;
+    animation: floatShape3 12s ease-in-out infinite;
+    z-index: 1;
+  }
+
+  .menu-shape-2 {
+    position: absolute;
+    bottom: 30%;
+    right: 5%;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, rgba(8, 193, 121, 0.05), transparent);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    animation: floatShape4 15s ease-in-out infinite;
+    z-index: 1;
+  }
+
+  .menu-shape-3 {
+    position: absolute;
+    top: 60%;
+    left: 5%;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, rgba(229, 198, 124, 0.08), transparent);
+    border-radius: 50%;
+    animation: floatShape5 9s ease-in-out infinite;
+    z-index: 1;
+  }
+
   /* Menu item animations */
   #off-canvas-menu nav ul li {
     opacity: 0;
-    transform: translateY(20px);
-    animation: slideInUp 0.4s ease-out forwards;
+    transform: translateY(30px) scale(0.95);
+    animation: slideInUpScale 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   }
 
   #off-canvas-menu nav ul li:nth-child(1) {
@@ -93,20 +162,39 @@
 
   /* Menu link styles */
   #off-canvas-menu nav a {
-    @apply block py-4 px-6 text-white text-lg font-medium transition-all duration-300;
+    @apply block py-4 px-6 text-white text-lg font-medium;
     position: relative;
     border-bottom: 2px solid transparent;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow: hidden;
+  }
+
+  #off-canvas-menu nav a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(192, 147, 58, 0.1), transparent);
+    transition: left 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  #off-canvas-menu nav a:hover::before {
+    left: 100%;
   }
 
   #off-canvas-menu nav a:hover {
     @apply text-secondary-dark;
     border-bottom-color: theme('colors.secondary.dark');
+    transform: translateX(8px);
   }
 
   #off-canvas-menu nav a.current-menu-item,
   #off-canvas-menu nav a.current_page_item {
     @apply text-secondary-dark;
     border-bottom-color: theme('colors.secondary.dark');
+    background: rgba(192, 147, 58, 0.05);
   }
 
   /* Submenu styles */
@@ -116,6 +204,12 @@
 
   #off-canvas-menu nav ul ul a {
     @apply py-2 px-3 text-sm text-gray-300;
+    transition: all 0.3s ease;
+  }
+
+  #off-canvas-menu nav ul ul a:hover {
+    @apply text-white bg-primary-800;
+    transform: translateX(4px);
   }
 }
 
@@ -150,12 +244,12 @@
   @keyframes slideInLeft {
     from {
       opacity: 0;
-      transform: translateX(-20px);
+      transform: translateX(-30px) scale(0.95);
     }
 
     to {
       opacity: 1;
-      transform: translateX(0);
+      transform: translateX(0) scale(1);
     }
   }
 
@@ -171,27 +265,39 @@
     }
   }
 
-  @keyframes slideInDown {
+  @keyframes slideInUpScale {
     from {
       opacity: 0;
-      transform: translateY(-30px);
+      transform: translateY(30px) scale(0.95);
     }
 
     to {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes slideInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px) scale(0.9);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
     }
   }
 
   @keyframes scaleIn {
     from {
       opacity: 0;
-      transform: scale(0.8);
+      transform: scale(0.7) rotate(-5deg);
     }
 
     to {
       opacity: 1;
-      transform: scale(1);
+      transform: scale(1) rotate(0deg);
     }
   }
 
@@ -205,6 +311,88 @@
     }
   }
 
+  /* Shape animations */
+  @keyframes floatShape1 {
+    0%, 100% {
+      transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+    25% {
+      transform: translate(-10px, -15px) rotate(90deg) scale(1.05);
+    }
+    50% {
+      transform: translate(-20px, 10px) rotate(180deg) scale(0.95);
+    }
+    75% {
+      transform: translate(10px, 20px) rotate(270deg) scale(1.1);
+    }
+  }
+
+  @keyframes floatShape2 {
+    0%, 100% {
+      transform: translate(0, 0) rotate(0deg);
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+    25% {
+      transform: translate(15px, -10px) rotate(45deg);
+      border-radius: 50% 50% 50% 50% / 60% 40% 60% 40%;
+    }
+    50% {
+      transform: translate(-5px, 15px) rotate(90deg);
+      border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+    }
+    75% {
+      transform: translate(-15px, -5px) rotate(135deg);
+      border-radius: 40% 60% 60% 40% / 50% 50% 50% 50%;
+    }
+  }
+
+  @keyframes floatShape3 {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+      opacity: 0.06;
+    }
+    33% {
+      transform: translate(10px, -20px) scale(1.2);
+      opacity: 0.1;
+    }
+    66% {
+      transform: translate(-15px, 10px) scale(0.8);
+      opacity: 0.04;
+    }
+  }
+
+  @keyframes floatShape4 {
+    0%, 100% {
+      transform: translate(0, 0) rotate(0deg);
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+    20% {
+      transform: translate(-8px, 12px) rotate(72deg);
+      border-radius: 40% 60% 50% 50% / 60% 30% 70% 40%;
+    }
+    40% {
+      transform: translate(12px, 8px) rotate(144deg);
+      border-radius: 50% 50% 40% 60% / 50% 60% 30% 70%;
+    }
+    60% {
+      transform: translate(5px, -15px) rotate(216deg);
+      border-radius: 60% 40% 60% 40% / 40% 70% 50% 50%;
+    }
+    80% {
+      transform: translate(-10px, -5px) rotate(288deg);
+      border-radius: 70% 30% 50% 50% / 30% 50% 70% 40%;
+    }
+  }
+
+  @keyframes floatShape5 {
+    0%, 100% {
+      transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+    50% {
+      transform: translate(20px, -10px) scale(1.3) rotate(180deg);
+    }
+  }
+
   /* Utility classes for menu */
   .menu-item-fade-in {
     animation: fadeIn 0.3s ease-out;
@@ -213,8 +401,8 @@
   /* Contact info animations */
   #off-canvas-menu .contact-item {
     opacity: 0;
-    transform: translateX(-30px);
-    animation: slideInLeft 0.5s ease-out forwards;
+    transform: translateX(-40px) scale(0.9);
+    animation: slideInLeft 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   }
 
   #off-canvas-menu .contact-item:nth-child(1) {
@@ -222,48 +410,129 @@
   }
 
   #off-canvas-menu .contact-item:nth-child(2) {
-    animation-delay: 0.7s;
+    animation-delay: 0.75s;
   }
 
   /* Social media animations */
   #off-canvas-menu .social-links a {
     opacity: 0;
-    transform: scale(0.8);
-    animation: scaleIn 0.4s ease-out forwards;
+    transform: scale(0.6) rotate(-10deg);
+    animation: scaleIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   }
 
   #off-canvas-menu .social-links a:nth-child(1) {
-    animation-delay: 0.8s;
-  }
-
-  #off-canvas-menu .social-links a:nth-child(2) {
-    animation-delay: 0.85s;
-  }
-
-  #off-canvas-menu .social-links a:nth-child(3) {
     animation-delay: 0.9s;
   }
 
+  #off-canvas-menu .social-links a:nth-child(2) {
+    animation-delay: 1s;
+  }
+
+  #off-canvas-menu .social-links a:nth-child(3) {
+    animation-delay: 1.1s;
+  }
+
   #off-canvas-menu .social-links a:nth-child(4) {
-    animation-delay: 0.95s;
+    animation-delay: 1.2s;
   }
 
   #off-canvas-menu .social-links a:nth-child(5) {
-    animation-delay: 1s;
+    animation-delay: 1.3s;
   }
 
   /* Logo animation */
   #off-canvas-menu .company-logo {
     opacity: 0;
-    transform: translateY(-30px);
-    animation: slideInDown 0.6s ease-out forwards;
-    animation-delay: 0.2s;
+    transform: translateY(-40px) scale(0.8);
+    animation: slideInDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation-delay: 0.3s;
   }
 
   /* Focus styles for accessibility */
   #off-canvas-menu a:focus,
   #off-canvas-menu button:focus {
     @apply outline-none ring-2 ring-secondary-dark ring-offset-2 ring-offset-primary-950;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    #off-canvas-menu {
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    #off-canvas-menu::before,
+    #off-canvas-menu::after {
+      display: none;
+    }
+
+    .menu-shape-1,
+    .menu-shape-2,
+    .menu-shape-3 {
+      width: 60px;
+      height: 60px;
+    }
+
+    .menu-shape-1 {
+      top: 15%;
+      right: 5%;
+    }
+
+    .menu-shape-2 {
+      bottom: 25%;
+      right: 3%;
+      width: 40px;
+      height: 40px;
+    }
+
+    .menu-shape-3 {
+      top: 70%;
+      left: 3%;
+      width: 30px;
+      height: 30px;
+    }
+
+    #off-canvas-menu nav a {
+      @apply py-3 px-4 text-base;
+    }
+
+    #off-canvas-menu nav a:hover {
+      transform: translateX(4px);
+    }
+
+    /* Reduce animation complexity on mobile */
+    #off-canvas-menu nav ul li {
+      animation-duration: 0.4s;
+    }
+
+    #off-canvas-menu .contact-item {
+      animation-duration: 0.5s;
+    }
+
+    #off-canvas-menu .social-links a {
+      animation-duration: 0.4s;
+    }
+
+    #off-canvas-menu .company-logo {
+      animation-duration: 0.6s;
+    }
+  }
+
+  /* Reduce motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    #off-canvas-menu,
+    #off-canvas-menu *,
+    #off-canvas-menu::before,
+    #off-canvas-menu::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+
+    .menu-shape-1,
+    .menu-shape-2,
+    .menu-shape-3 {
+      animation: none !important;
+    }
   }
 }
 

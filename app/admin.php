@@ -43,6 +43,17 @@ add_action('admin_menu', function () {
         32                                       // Position
     );
 
+    // Advantages admin page
+    add_menu_page(
+        __('Lợi thế', 'qpgreenpark'),            // Page title
+        __('Lợi thế', 'qpgreenpark'),            // Menu title
+        'manage_options',                        // Capability
+        'advantages',                            // Menu slug
+        __NAMESPACE__ . '\\render_advantages_page', // Callback function
+        'dashicons-star-filled',                 // Icon
+        32                                       // Position
+    );
+
     // Floor Plan admin page
     add_menu_page(
         __('Mặt bằng', 'qpgreenpark'),           // Page title
@@ -187,6 +198,132 @@ function render_utilities_page() {
         .utilities-admin-content h2 { margin-top: 0; color: #23282d; }
         .utilities-admin-content ul { margin-left: 20px; }
         .utilities-admin-content li { margin-bottom: 8px; line-height: 1.5; }
+    </style>
+    <?php
+}
+
+/**
+ * Render the Advantages admin page
+ */
+function render_advantages_page() {
+    // Handle form submission
+    if (isset($_POST['submit']) && wp_verify_nonce($_POST['advantages_nonce'], 'advantages_save')) {
+        // Save ACF fields
+        if (function_exists('acf_save_post')) {
+            $_POST['acf']['_acfnonce'] = wp_create_nonce('acf_nonce');
+            acf_save_post('options');
+        }
+
+        echo '<div class="notice notice-success is-dismissible"><p>' . __('Đã lưu thành công!', 'qpgreenpark') . '</p></div>';
+    }
+
+    // Handle demo seed (force, no redirect)
+    if (isset($_POST['seed_demo']) && wp_verify_nonce($_POST['advantages_seed_nonce'], 'advantages_seed')) {
+        if (!function_exists('update_field')) {
+            echo '<div class="notice notice-error is-dismissible"><p>' . __('ACF chưa sẵn sàng để seed dữ liệu.', 'qpgreenpark') . '</p></div>';
+        } else {
+            // Title & subtitle
+            update_field('field_loi_the_tieu_de', 'Chỉ có tại', 'option');
+            update_field('field_loi_the_phu_de', 'QP Green Park', 'option');
+
+            // Demo advantages data
+            $demo_advantages = [
+                [
+                    'field_loi_the_tieu_de_item' => 'VỊ TRÍ ĐẮC ĐỊA',
+                    'field_loi_the_mo_ta' => 'Tọa lạc tại Bình Mỹ, Bắc Tân Uyên, khu vực phát triển mạnh, có tiềm năng tăng giá trị bất động sản.',
+                ],
+                [
+                    'field_loi_the_tieu_de_item' => 'THIẾT KẾ HIỆN ĐẠI',
+                    'field_loi_the_mo_ta' => 'Kiến trúc vuông vức, mạnh mẽ, tối ưu công năng. Sử dụng mảng kính lớn và đường nét đứng tạo cảm giác sang trọng, cao ráo.',
+                ],
+                [
+                    'field_loi_the_tieu_de_item' => 'SẢN PHẨM ĐA DẠNG',
+                    'field_loi_the_mo_ta' => 'Cung cấp 6 mẫu nhà phố và 4 mẫu nhà thương mại, tạo nên một khu đô thị phong phú và sinh động.',
+                ],
+                [
+                    'field_loi_the_tieu_de_item' => 'KHÔNG GIAN XANH',
+                    'field_loi_the_mo_ta' => 'Các mảng xanh tại ban công và sân thượng giúp không gian sống gần gũi với thiên nhiên, tràn đầy sức sống.',
+                ],
+                [
+                    'field_loi_the_tieu_de_item' => 'VẬT LIỆU CHẤT LƯỢNG',
+                    'field_loi_the_mo_ta' => 'Sử dụng vật liệu hiện đại như kính cường lực và khung nhôm Xingfa, đảm bảo độ bền và tính thẩm mỹ cao.',
+                ],
+                [
+                    'field_loi_the_tieu_de_item' => 'PHONG THỦY HÀI HÒA',
+                    'field_loi_the_mo_ta' => 'Thiết kế dựa trên yếu tố phong thủy ứng với chu kỳ 9, lựa chọn màu sắc mang lại may mắn và vượng khí.',
+                ],
+            ];
+
+            update_field('field_loi_the_danh_sach', $demo_advantages, 'option');
+
+            echo '<div class="notice notice-success is-dismissible"><p>' . __('Đã seed dữ liệu demo thành công!', 'qpgreenpark') . '</p></div>';
+        }
+    }
+    ?>
+    <div class="wrap">
+        <h1><?php echo esc_html(get_admin_page_title()); ?></h1>
+
+        <div class="advantages-admin-content">
+            <h2>Quản lý lợi thế dự án</h2>
+            <p>Cấu hình thông tin về các lợi thế nổi bật của dự án QP Green Park.</p>
+            <ul>
+                <li><strong>Tiêu đề & Phụ đề:</strong> Thiết lập tiêu đề chính và phụ đề cho section lợi thế</li>
+                <li><strong>Danh sách lợi thế:</strong> Thêm/sửa/xóa các lợi thế với hình ảnh, tiêu đề và mô tả</li>
+                <li><strong>Thứ tự hiển thị:</strong> Sắp xếp thứ tự hiển thị các lợi thế</li>
+            </ul>
+        </div>
+
+        <!-- Demo Seed Form -->
+        <form method="post" action="" style="margin-bottom: 20px;">
+            <?php wp_nonce_field('advantages_seed', 'advantages_seed_nonce'); ?>
+            <input type="submit" name="seed_demo" class="button button-secondary"
+                   value="<?php echo esc_attr(__('Seed dữ liệu demo', 'qpgreenpark')); ?>"
+                   onclick="return confirm('Bạn có chắc chắn muốn seed dữ liệu demo? Điều này sẽ ghi đè dữ liệu hiện tại.');" />
+            <small style="margin-left: 10px; color: #666;">
+                <?php _e('Tạo dữ liệu mẫu cho phần lợi thế (chỉ tiêu đề và mô tả, không có hình ảnh)', 'qpgreenpark'); ?>
+            </small>
+        </form>
+
+        <hr style="margin: 20px 0;" />
+
+        <form method="post" action="">
+            <?php wp_nonce_field('advantages_save', 'advantages_nonce'); ?>
+
+            <?php
+            // Display ACF fields for options page
+            if (function_exists('acf_form')) {
+                acf_form([
+                    'post_id' => 'options',
+                    'field_groups' => ['group_loi_the'],
+                    'form' => false,
+                    'return' => '',
+                ]);
+            }
+            ?>
+
+            <?php submit_button(__('Lưu thay đổi', 'qpgreenpark')); ?>
+        </form>
+    </div>
+
+    <style>
+        .advantages-admin-content {
+            background: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #ccd0d4;
+            border-radius: 4px;
+        }
+        .advantages-admin-content h2 {
+            margin-top: 0;
+            color: #23282d;
+        }
+        .advantages-admin-content ul {
+            margin-left: 20px;
+        }
+        .advantages-admin-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
     </style>
     <?php
 }
@@ -382,7 +519,7 @@ function render_library_page() {
  * Enqueue ACF scripts on admin pages
  */
 add_action('admin_enqueue_scripts', function ($hook) {
-    if (!in_array($hook, ['toplevel_page_partners', 'toplevel_page_utilities', 'toplevel_page_library', 'toplevel_page_floorplan'])) {
+    if (!in_array($hook, ['toplevel_page_partners', 'toplevel_page_utilities', 'toplevel_page_advantages', 'toplevel_page_library', 'toplevel_page_floorplan'])) {
         return;
     }
 
@@ -413,7 +550,7 @@ add_filter('acf/settings/load_json', function ($paths) {
  */
 add_action('admin_notices', function () {
     // Only show on admin pages
-    if (!isset($_GET['page']) || !in_array($_GET['page'], ['partners', 'utilities', 'library', 'floorplan'])) {
+    if (!isset($_GET['page']) || !in_array($_GET['page'], ['partners', 'utilities', 'advantages', 'library', 'floorplan'])) {
         return;
     }
 

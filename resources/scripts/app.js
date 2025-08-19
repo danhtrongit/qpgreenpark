@@ -3,7 +3,8 @@ import OffCanvasMenu from './components/offcanvas-menu';
 import OwlCarouselComponent from './components/owl-carousel';
 import FancyboxComponent from './components/fancybox';
 import FullPageInit from './components/fullpage-init';
-import AOSInit from './components/aos-init';
+// Modern AOS + FullPage.js integration
+import AOSFullPageModern from './components/aos-fullpage-modern';
 
 /**
  * Application entrypoint
@@ -21,11 +22,12 @@ domReady(async () => {
   // Initialize FullPage.js first (desktop/tablet only, front page only)
   const fullPageInit = new FullPageInit();
 
-  // Initialize AOS after FullPage.js with a small delay to ensure FullPage is ready
-  setTimeout(() => {
-    const aosInit = new AOSInit();
-    window.aosInit = aosInit;
-  }, 100);
+  // Initialize modern AOS integration - no delays needed, handles timing internally
+  const aosModern = new AOSFullPageModern();
+  window.aosModern = aosModern;
+
+  // Keep reference for compatibility
+  window.aosInit = aosModern;
 
   // Make them globally available for debugging
   window.offCanvasMenu = offCanvasMenu;

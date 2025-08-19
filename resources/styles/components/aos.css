@@ -1,139 +1,118 @@
-/* AOS (Animate On Scroll) Custom Styles */
+/* Modern AOS + FullPage.js Integration CSS */
 
-/* Custom AOS animations */
-[data-aos="fade-up"] {
+/* Base AOS styles - import from node_modules */
+@import 'aos/dist/aos.css';
+
+/* FullPage.js container optimizations */
+#fullpage .section,
+[data-fullpage] .section {
+  overflow: hidden; /* Prevent animation overflow issues */
+}
+
+#fullpage .slide,
+[data-fullpage] .slide {
+  overflow: hidden; /* Prevent animation overflow issues for slides */
+}
+
+/* AOS elements in FullPage sections and slides */
+#fullpage .section [data-aos],
+[data-fullpage] .section [data-aos],
+#fullpage .slide [data-aos],
+[data-fullpage] .slide [data-aos] {
+  transition-duration: 0.6s;
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-property: transform, opacity;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+/* Initial state - elements are hidden until animated */
+#fullpage .section [data-aos]:not(.aos-animate),
+[data-fullpage] .section [data-aos]:not(.aos-animate),
+#fullpage .slide [data-aos]:not(.aos-animate),
+[data-fullpage] .slide [data-aos]:not(.aos-animate) {
+  opacity: 0;
+}
+
+/* Animated state - elements are visible */
+#fullpage .section [data-aos].aos-animate,
+[data-fullpage] .section [data-aos].aos-animate,
+#fullpage .slide [data-aos].aos-animate,
+[data-fullpage] .slide [data-aos].aos-animate {
+  opacity: 1;
+}
+
+/* Animation states for different AOS effects */
+#fullpage .section [data-aos="fade-up"]:not(.aos-animate),
+[data-fullpage] .section [data-aos="fade-up"]:not(.aos-animate),
+#fullpage .slide [data-aos="fade-up"]:not(.aos-animate),
+[data-fullpage] .slide [data-aos="fade-up"]:not(.aos-animate) {
   transform: translate3d(0, 40px, 0);
   opacity: 0;
 }
 
-[data-aos="fade-down"] {
+#fullpage .section [data-aos="fade-down"]:not(.aos-animate),
+[data-fullpage] .section [data-aos="fade-down"]:not(.aos-animate),
+#fullpage .slide [data-aos="fade-down"]:not(.aos-animate),
+[data-fullpage] .slide [data-aos="fade-down"]:not(.aos-animate) {
   transform: translate3d(0, -40px, 0);
   opacity: 0;
 }
 
-[data-aos="fade-left"] {
-  transform: translate3d(40px, 0, 0);
-  opacity: 0;
-}
-
-[data-aos="fade-right"] {
+#fullpage .section [data-aos="fade-right"]:not(.aos-animate),
+[data-fullpage] .section [data-aos="fade-right"]:not(.aos-animate),
+#fullpage .slide [data-aos="fade-right"]:not(.aos-animate),
+[data-fullpage] .slide [data-aos="fade-right"]:not(.aos-animate) {
   transform: translate3d(-40px, 0, 0);
   opacity: 0;
 }
 
-[data-aos="zoom-in"] {
-  transform: scale(0.8);
+#fullpage .section [data-aos="fade-left"]:not(.aos-animate),
+[data-fullpage] .section [data-aos="fade-left"]:not(.aos-animate),
+#fullpage .slide [data-aos="fade-left"]:not(.aos-animate),
+[data-fullpage] .slide [data-aos="fade-left"]:not(.aos-animate) {
+  transform: translate3d(40px, 0, 0);
   opacity: 0;
 }
 
-[data-aos="zoom-out"] {
-  transform: scale(1.2);
+#fullpage .section [data-aos="zoom-in"]:not(.aos-animate),
+[data-fullpage] .section [data-aos="zoom-in"]:not(.aos-animate),
+#fullpage .slide [data-aos="zoom-in"]:not(.aos-animate),
+[data-fullpage] .slide [data-aos="zoom-in"]:not(.aos-animate) {
+  transform: scale3d(0.8, 0.8, 1);
   opacity: 0;
 }
 
-/* Enhanced animations for specific elements */
-[data-aos="slide-up"] {
-  transform: translate3d(0, 60px, 0);
+#fullpage .section [data-aos="zoom-out"]:not(.aos-animate),
+[data-fullpage] .section [data-aos="zoom-out"]:not(.aos-animate),
+#fullpage .slide [data-aos="zoom-out"]:not(.aos-animate),
+[data-fullpage] .slide [data-aos="zoom-out"]:not(.aos-animate) {
+  transform: scale3d(1.2, 1.2, 1);
   opacity: 0;
 }
 
-[data-aos="slide-down"] {
-  transform: translate3d(0, -60px, 0);
-  opacity: 0;
+/* Final animated state */
+#fullpage .section [data-aos].aos-animate,
+[data-fullpage] .section [data-aos].aos-animate,
+#fullpage .slide [data-aos].aos-animate,
+[data-fullpage] .slide [data-aos].aos-animate {
+  transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  opacity: 1;
 }
 
-[data-aos="slide-left"] {
-  transform: translate3d(60px, 0, 0);
-  opacity: 0;
+/* Fallback for no-JS or AOS failure */
+.no-js [data-aos],
+html.no-aos [data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
 }
 
-[data-aos="slide-right"] {
-  transform: translate3d(-60px, 0, 0);
-  opacity: 0;
-}
-
-/* Custom easing for smoother animations */
-[data-aos] {
-  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* Specific animations for carousel items */
-.owl-carousel .item[data-aos] {
-  transition-delay: 0s !important;
-}
-
-/* Enhanced animations for text elements */
-h1[data-aos], h2[data-aos], h3[data-aos] {
-  transition-duration: 0.8s;
-}
-
-/* Enhanced animations for images */
-img[data-aos] {
-  transition-duration: 1s;
-  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-/* Custom animation for stats/numbers */
-[data-aos="counter-up"] {
-  transform: translate3d(0, 30px, 0) scale(0.9);
-  opacity: 0;
-}
-
-/* Animation for buttons and links */
-a[data-aos], button[data-aos] {
-  transition-duration: 0.6s;
-  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-/* Stagger animation for grid items */
-.grid > *[data-aos] {
-  transition-delay: calc(var(--aos-delay, 0ms) + (var(--stagger-delay, 100ms) * var(--stagger-index, 0)));
-}
-
-/* Enhanced mobile responsiveness */
+/* Mobile optimizations */
 @media (max-width: 768px) {
-  [data-aos] {
-    transform: none !important;
-    opacity: 1 !important;
+  #fullpage .section [data-aos],
+  [data-fullpage] .section [data-aos],
+  #fullpage .slide [data-aos],
+  [data-fullpage] .slide [data-aos] {
+    transition-duration: 0.4s; /* Slightly faster on mobile */
   }
-  
-  /* Keep some subtle animations on mobile */
-  [data-aos="fade-up"],
-  [data-aos="fade-down"],
-  [data-aos="fade-left"],
-  [data-aos="fade-right"] {
-    transform: translate3d(0, 20px, 0);
-    opacity: 0;
-  }
-  
-  [data-aos="zoom-in"] {
-    transform: scale(0.95);
-    opacity: 0;
-  }
-}
-
-/* Disable AOS on reduced motion preference */
-@media (prefers-reduced-motion: reduce) {
-  [data-aos] {
-    transform: none !important;
-    opacity: 1 !important;
-    transition: none !important;
-  }
-}
-
-/* Custom animations for specific components */
-.section[data-aos] {
-  transition-duration: 1s;
-  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* Enhanced carousel animations */
-.owl-carousel[data-aos] {
-  transition-duration: 1.2s;
-}
-
-/* Smooth reveal for complex layouts */
-.container[data-aos] {
-  transition-duration: 0.8s;
-  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
 }

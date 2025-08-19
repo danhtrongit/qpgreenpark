@@ -1,5 +1,5 @@
 {{-- Header Section --}}
-<header class="banner fixed top-0 w-full z-40 bg-gradient-to-b from-primary-950 to-primary-900/50">
+<header class="banner fixed top-0 w-full z-40">
     <div class="container px-4">
         <div class="flex items-center justify-between">
 

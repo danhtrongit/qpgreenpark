@@ -1,0 +1,181 @@
+{
+    "key": "group_loi_the",
+    "title": "Lợi thế",
+    "fields": [
+        {
+            "key": "field_loi_the_tieu_de",
+            "label": "Tiêu đề section",
+            "name": "loi_the_tieu_de",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Tiêu đề chính của phần lợi thế",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Chỉ có tại",
+            "maxlength": "",
+            "placeholder": "Ví dụ: Chỉ có tại",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_loi_the_phu_de",
+            "label": "Phụ đề",
+            "name": "loi_the_phu_de",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Phụ đề của phần lợi thế",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "QP Green Park",
+            "maxlength": "",
+            "placeholder": "Ví dụ: QP Green Park",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_loi_the_hinh_anh_icon",
+            "label": "Hình ảnh icon",
+            "name": "loi_the_hinh_anh_icon",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Hình ảnh icon hiển thị bên trái tiêu đề (SVG khuyến nghị)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "jpg,jpeg,png,svg",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_loi_the_danh_sach",
+            "label": "Danh sách lợi thế",
+            "name": "loi_the_danh_sach",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Thêm các lợi thế của dự án",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Thêm lợi thế",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_loi_the_tieu_de_item",
+                    "label": "Tiêu đề lợi thế",
+                    "name": "tieu_de",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Tiêu đề của lợi thế",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Ví dụ: VỊ TRÍ ĐẮC ĐỊA",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_loi_the_danh_sach"
+                },
+                {
+                    "key": "field_loi_the_mo_ta",
+                    "label": "Mô tả",
+                    "name": "mo_ta",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Mô tả chi tiết về lợi thế",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "rows": 3,
+                    "placeholder": "Mô tả chi tiết về lợi thế...",
+                    "new_lines": "br",
+                    "parent_repeater": "field_loi_the_danh_sach"
+                },
+                {
+                    "key": "field_loi_the_hinh_anh",
+                    "label": "Hình ảnh",
+                    "name": "hinh_anh",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Hình ảnh minh họa cho lợi thế",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "jpg,jpeg,png",
+                    "preview_size": "medium",
+                    "parent_repeater": "field_loi_the_danh_sach"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-advantages"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Cài đặt thông tin lợi thế của dự án QP Green Park",
+    "show_in_rest": 0
+}

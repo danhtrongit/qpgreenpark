@@ -28,14 +28,16 @@ class OffCanvasMenu {
   }
 
   setupElements() {
-    // Initially hide the menu
+    // Initially hide the menu with enhanced transition
     this.menu.style.transform = 'translateX(-100%)';
-    this.menu.style.transition = 'transform 0.3s ease-in-out';
+    this.menu.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
     this.menu.setAttribute('aria-hidden', 'true');
 
-    // Create overlay
+    // Create enhanced overlay with gradient and blur
     this.overlay = document.createElement('div');
-    this.overlay.className = 'fixed inset-0 bg-black bg-opacity-50 z-40 opacity-0 pointer-events-none transition-opacity duration-300';
+    this.overlay.className = 'fixed inset-0 z-40 opacity-0 pointer-events-none backdrop-blur-sm';
+    this.overlay.style.background = 'linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.4) 100%)';
+    this.overlay.style.transition = 'opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), backdrop-filter 0.5s ease';
     this.overlay.setAttribute('aria-hidden', 'true');
     document.body.appendChild(this.overlay);
 
@@ -152,12 +154,13 @@ class OffCanvasMenu {
     // Prevent body scroll
     document.body.style.overflow = 'hidden';
 
-    // Show overlay
+    // Show overlay with smooth transition
     this.overlay.style.pointerEvents = 'auto';
+    this.overlay.style.transition = 'opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
     this.overlay.style.opacity = '1';
     this.overlay.setAttribute('aria-hidden', 'false');
 
-    // Show menu with animation
+    // Show menu with enhanced animation
     this.menu.style.transform = 'translateX(0)';
     this.menu.setAttribute('aria-hidden', 'false');
     this.menu.classList.add('open');
@@ -170,68 +173,151 @@ class OffCanvasMenu {
     // Trigger menu item animations
     this.animateMenuItems();
 
+    // Animate decorative shapes
+    this.animateShapes();
+
     // Focus first focusable element
     setTimeout(() => {
       this.updateFocusableElements();
       if (this.focusableElements.length > 0) {
         this.focusableElements[0].focus();
       }
-    }, 100);
+    }, 200);
 
     // Dispatch custom event
     this.menu.dispatchEvent(new CustomEvent('offcanvas:opened'));
   }
 
   animateMenuItems() {
-    // Animate menu items
+    // Reset all animations first
+    this.resetAnimations();
+
+    // Animate menu items with enhanced easing
     const menuItems = this.menu.querySelectorAll('nav ul li');
     menuItems.forEach((item, index) => {
       item.style.opacity = '0';
-      item.style.transform = 'translateY(20px)';
+      item.style.transform = 'translateY(30px) scale(0.95)';
 
       setTimeout(() => {
-        item.style.transition = 'opacity 0.4s ease-out, transform 0.4s ease-out';
+        item.style.transition = 'opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
         item.style.opacity = '1';
-        item.style.transform = 'translateY(0)';
-      }, 100 + (index * 50));
+        item.style.transform = 'translateY(0) scale(1)';
+      }, 150 + (index * 80));
     });
 
-    // Animate logo
+    // Animate logo with bounce effect
     const logo = this.menu.querySelector('.company-logo');
     if (logo) {
       logo.style.opacity = '0';
-      logo.style.transform = 'translateY(-30px)';
+      logo.style.transform = 'translateY(-40px) scale(0.8)';
       setTimeout(() => {
-        logo.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        logo.style.transition = 'opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
         logo.style.opacity = '1';
-        logo.style.transform = 'translateY(0)';
-      }, 200);
+        logo.style.transform = 'translateY(0) scale(1)';
+      }, 300);
     }
 
-    // Animate contact items
+    // Animate contact items with slide and scale
     const contactItems = this.menu.querySelectorAll('.contact-item');
     contactItems.forEach((item, index) => {
       item.style.opacity = '0';
-      item.style.transform = 'translateX(-30px)';
+      item.style.transform = 'translateX(-40px) scale(0.9)';
 
       setTimeout(() => {
-        item.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
+        item.style.transition = 'opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
         item.style.opacity = '1';
-        item.style.transform = 'translateX(0)';
-      }, 600 + (index * 100));
+        item.style.transform = 'translateX(0) scale(1)';
+      }, 600 + (index * 150));
     });
 
-    // Animate social links
+    // Animate social links with rotation and scale
     const socialLinks = this.menu.querySelectorAll('.social-links a');
     socialLinks.forEach((link, index) => {
       link.style.opacity = '0';
-      link.style.transform = 'scale(0.8)';
+      link.style.transform = 'scale(0.6) rotate(-10deg)';
 
       setTimeout(() => {
-        link.style.transition = 'opacity 0.4s ease-out, transform 0.4s ease-out';
+        link.style.transition = 'opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
         link.style.opacity = '1';
-        link.style.transform = 'scale(1)';
-      }, 800 + (index * 50));
+        link.style.transform = 'scale(1) rotate(0deg)';
+      }, 900 + (index * 100));
+    });
+  }
+
+  animateShapes() {
+    // Add entrance animation to decorative shapes
+    const shapes = this.menu.querySelectorAll('.menu-shape-1, .menu-shape-2, .menu-shape-3');
+    shapes.forEach((shape, index) => {
+      shape.style.opacity = '0';
+      shape.style.transform = 'scale(0) rotate(45deg)';
+
+      setTimeout(() => {
+        shape.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
+        shape.style.opacity = '1';
+        shape.style.transform = 'scale(1) rotate(0deg)';
+      }, 200 + (index * 300));
+    });
+  }
+
+  resetAnimations() {
+    // Reset all element styles to initial state
+    const allAnimatedElements = this.menu.querySelectorAll('nav ul li, .company-logo, .contact-item, .social-links a, .menu-shape-1, .menu-shape-2, .menu-shape-3');
+    allAnimatedElements.forEach(element => {
+      element.style.transition = 'none';
+      element.style.opacity = '0';
+      element.style.transform = '';
+    });
+  }
+
+  animateElementsOut() {
+    // Animate social links out first
+    const socialLinks = this.menu.querySelectorAll('.social-links a');
+    socialLinks.forEach((link, index) => {
+      setTimeout(() => {
+        link.style.transition = 'opacity 0.3s ease-in, transform 0.3s ease-in';
+        link.style.opacity = '0';
+        link.style.transform = 'scale(0.6) rotate(10deg)';
+      }, index * 30);
+    });
+
+    // Animate contact items out
+    const contactItems = this.menu.querySelectorAll('.contact-item');
+    contactItems.forEach((item, index) => {
+      setTimeout(() => {
+        item.style.transition = 'opacity 0.3s ease-in, transform 0.3s ease-in';
+        item.style.opacity = '0';
+        item.style.transform = 'translateX(-30px) scale(0.9)';
+      }, 100 + (index * 50));
+    });
+
+    // Animate menu items out
+    const menuItems = this.menu.querySelectorAll('nav ul li');
+    menuItems.forEach((item, index) => {
+      setTimeout(() => {
+        item.style.transition = 'opacity 0.2s ease-in, transform 0.2s ease-in';
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(-20px) scale(0.95)';
+      }, 150 + (index * 30));
+    });
+
+    // Animate logo out
+    const logo = this.menu.querySelector('.company-logo');
+    if (logo) {
+      setTimeout(() => {
+        logo.style.transition = 'opacity 0.3s ease-in, transform 0.3s ease-in';
+        logo.style.opacity = '0';
+        logo.style.transform = 'translateY(-30px) scale(0.8)';
+      }, 50);
+    }
+
+    // Animate shapes out
+    const shapes = this.menu.querySelectorAll('.menu-shape-1, .menu-shape-2, .menu-shape-3');
+    shapes.forEach((shape, index) => {
+      setTimeout(() => {
+        shape.style.transition = 'opacity 0.4s ease-in, transform 0.4s ease-in';
+        shape.style.opacity = '0';
+        shape.style.transform = 'scale(0) rotate(-45deg)';
+      }, index * 50);
     });
   }
 
@@ -240,20 +326,26 @@ class OffCanvasMenu {
 
     this.isOpen = false;
 
+    // Animate elements out before closing
+    this.animateElementsOut();
+
     // Restore body scroll
     document.body.style.overflow = '';
 
-    // Hide overlay
+    // Hide overlay with smooth transition
+    this.overlay.style.transition = 'opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
     this.overlay.style.opacity = '0';
     this.overlay.setAttribute('aria-hidden', 'true');
     setTimeout(() => {
       this.overlay.style.pointerEvents = 'none';
-    }, 300);
+    }, 500);
 
-    // Hide menu
-    this.menu.style.transform = 'translateX(-100%)';
-    this.menu.setAttribute('aria-hidden', 'true');
-    this.menu.classList.remove('open');
+    // Hide menu with enhanced timing
+    setTimeout(() => {
+      this.menu.style.transform = 'translateX(-100%)';
+      this.menu.setAttribute('aria-hidden', 'true');
+      this.menu.classList.remove('open');
+    }, 200);
 
     // Close all submenus
     this.menu.querySelectorAll('.submenu').forEach(submenu => {
